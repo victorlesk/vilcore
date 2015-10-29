@@ -1,0 +1,14 @@
+PODS:
+  - vilcore (0.1.0)
+
+DEPENDENCIES:
+  - vilcore (from `../`)
+
+EXTERNAL SOURCES:
+  vilcore:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  vilcore: 3966338aaa94d3ff9a9933829d5ae65ff174c4bc
+
+COCOAPODS: 0.39.0

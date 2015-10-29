@@ -1,0 +1,6 @@
+framework module vilcore {
+  umbrella header "vilcore-umbrella.h"
+
+  export *
+  module * { export * }
+}

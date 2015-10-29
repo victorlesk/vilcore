@@ -1,0 +1,780 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5EFE9D15F67222420EE7A52EAADE4997 /* vilcore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93894B5A97A8BDF73F4E7A0F9F8A5A1D /* vilcore-dummy.m */; };
+		738F417F0612675F61D1FE60E76564C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		73CA6DAD6775B63EE044550A70699BDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		7E668757F05CE15A3FE716FFAA23C294 /* Pods-vilcore_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 821CF87C780FD911EDF7D26B3B6C8CEF /* Pods-vilcore_Tests-dummy.m */; };
+		81FC66407A75B18AA9047C941A901EA9 /* vilcore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DD0351C1BA86EF45BD1C7FD1F45EE70 /* vilcore.bundle */; };
+		922E0CF3E2EBFD800F31D8726A2A2669 /* Pods-vilcore_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 885AD81686D99CC5EBA50C40FE3742D4 /* Pods-vilcore_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B39836FC62D71F22F2F16FD4AB3B6F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		9EA4C966F608FFDEC7F864E68316F55D /* vilcore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C863C93091822E6454B86245887311 /* vilcore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A13207F1ADD40639EDC6B64318E9311E /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6A35CE8EB5DB2DD8789B873433C6E /* ReplaceMe.swift */; };
+		A8EEAEE837E29CA5859044B40F09468B /* Pods-vilcore_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FC6C20AD19BF6B4FDB5E8697FCB39B /* Pods-vilcore_Example-dummy.m */; };
+		C042ABD2B3BB5FB829A978ABCDBACA70 /* Pods-vilcore_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16436ED790A1790681E6601EA0480514 /* Pods-vilcore_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		384E91B2AADA2899150E4E830296609F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4FB6D61333A96108D8EBBD89771B7EE;
+			remoteInfo = "vilcore-vilcore";
+		};
+		5D86E7469BDFA1448A2F958E48951B38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E61FC3FA28196D78BB9E554E15A51C4B;
+			remoteInfo = vilcore;
+		};
+		78BF3F0C20F2AFD730CD6B240AD94538 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E61FC3FA28196D78BB9E554E15A51C4B;
+			remoteInfo = vilcore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16436ED790A1790681E6601EA0480514 /* Pods-vilcore_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-vilcore_Tests-umbrella.h"; sourceTree = "<group>"; };
+		1EBED4962166F10A3E734F8C25888143 /* Pods-vilcore_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-vilcore_Tests.modulemap"; sourceTree = "<group>"; };
+		220E506530586122E5498DDD5FEFDCAF /* Pods-vilcore_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vilcore_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		27A58529999F01BE2CC078D143787A1E /* vilcore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = vilcore.modulemap; sourceTree = "<group>"; };
+		38BB352DAF3D74162130E771B3563279 /* vilcore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = vilcore.xcconfig; sourceTree = "<group>"; };
+		3B0BB2E57B9FB6D0714FF297DA55DFB3 /* Pods-vilcore_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vilcore_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		41FC6C20AD19BF6B4FDB5E8697FCB39B /* Pods-vilcore_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-vilcore_Example-dummy.m"; sourceTree = "<group>"; };
+		51D5A6076535D42FE6D449D4597CCFAD /* Pods-vilcore_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-vilcore_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		552D8E73B1A3E33CA56159BEF8FFCE01 /* Pods-vilcore_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-vilcore_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		552FBE7C9D099B5B1F161F17EEEB7E31 /* Pods-vilcore_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vilcore_Example-frameworks.sh"; sourceTree = "<group>"; };
+		5A85822C273E54B210817AC93A3BAFAC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D2B7876C82E9E57816B3A664647616E /* Pods-vilcore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vilcore_Example.release.xcconfig"; sourceTree = "<group>"; };
+		692FAAED9EADEB6B75091A150773D19E /* vilcore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = vilcore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DD0351C1BA86EF45BD1C7FD1F45EE70 /* vilcore.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vilcore.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DFBE15CB07BDA36CBD0F17E2CAADC51 /* Pods-vilcore_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-vilcore_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		788ECB4299144F4D8B087A2069C65ADF /* Pods-vilcore_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vilcore_Tests-resources.sh"; sourceTree = "<group>"; };
+		7A2C1A91FB9EC6D5E8A84A52D68314E4 /* Pods_vilcore_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vilcore_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB87EB02710369BFFF84BC43D31D134 /* vilcore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "vilcore-prefix.pch"; sourceTree = "<group>"; };
+		7D25B5721C09DA6BCFA2424955F00778 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		821CF87C780FD911EDF7D26B3B6C8CEF /* Pods-vilcore_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-vilcore_Tests-dummy.m"; sourceTree = "<group>"; };
+		885AD81686D99CC5EBA50C40FE3742D4 /* Pods-vilcore_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-vilcore_Example-umbrella.h"; sourceTree = "<group>"; };
+		93894B5A97A8BDF73F4E7A0F9F8A5A1D /* vilcore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "vilcore-dummy.m"; sourceTree = "<group>"; };
+		9AA6A35CE8EB5DB2DD8789B873433C6E /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
+		9E6307EAD038EF2B10413E6C28AA5FE1 /* Pods_vilcore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vilcore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5C863C93091822E6454B86245887311 /* vilcore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "vilcore-umbrella.h"; sourceTree = "<group>"; };
+		AF44B86A85F0388CD856510830AC2854 /* Pods-vilcore_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vilcore_Example-resources.sh"; sourceTree = "<group>"; };
+		B875DAE217403E96EDD6D476D65ABE6B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C55A5D8685425C36F7D57CFB31135D08 /* Pods-vilcore_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vilcore_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		CD2545416928CCF1A49A2BA85D010AAE /* Pods-vilcore_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-vilcore_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F18EE6CCA4735E0D71970D18B755B4B5 /* Pods-vilcore_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-vilcore_Example.modulemap"; sourceTree = "<group>"; };
+		F2F30FD2868C2751550A20F4C0BED514 /* Pods-vilcore_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vilcore_Example.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1990CA0C0F1D8D18BE5EDB0E0A04F7CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87052BF52BB95B2F99E19EE508C3C09A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73CA6DAD6775B63EE044550A70699BDA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C11200DF053A0323CAE3D524F3D8DA32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B39836FC62D71F22F2F16FD4AB3B6F0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA40B414703B8B461C27F770EB4FF6E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				738F417F0612675F61D1FE60E76564C5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17193C58933E4B5177301DF41133C74A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				22067AE7E5A0ACAAED3F346E46B75047 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		22067AE7E5A0ACAAED3F346E46B75047 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9AA6A35CE8EB5DB2DD8789B873433C6E /* ReplaceMe.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5FBF011B0D0592E41B8BB8C8AAD18A33 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9367E5794099C3D3E8C5FDC2AACC5F9F /* Pods-vilcore_Example */,
+				E925B30736169421263B9FB2B9586AC8 /* Pods-vilcore_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		73569C9014972383843DD23AA967C188 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				73B1AC291A37D13AE82987190FF427E5 /* vilcore */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		73B1AC291A37D13AE82987190FF427E5 /* vilcore */ = {
+			isa = PBXGroup;
+			children = (
+				17193C58933E4B5177301DF41133C74A /* Pod */,
+				C6DEA2EAFCFBBB96782559A5D832E596 /* Support Files */,
+			);
+			name = vilcore;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				73569C9014972383843DD23AA967C188 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				D0ED850A4592D5E805AC10271179F06F /* Products */,
+				5FBF011B0D0592E41B8BB8C8AAD18A33 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9367E5794099C3D3E8C5FDC2AACC5F9F /* Pods-vilcore_Example */ = {
+			isa = PBXGroup;
+			children = (
+				5A85822C273E54B210817AC93A3BAFAC /* Info.plist */,
+				F18EE6CCA4735E0D71970D18B755B4B5 /* Pods-vilcore_Example.modulemap */,
+				552D8E73B1A3E33CA56159BEF8FFCE01 /* Pods-vilcore_Example-acknowledgements.markdown */,
+				51D5A6076535D42FE6D449D4597CCFAD /* Pods-vilcore_Example-acknowledgements.plist */,
+				41FC6C20AD19BF6B4FDB5E8697FCB39B /* Pods-vilcore_Example-dummy.m */,
+				552FBE7C9D099B5B1F161F17EEEB7E31 /* Pods-vilcore_Example-frameworks.sh */,
+				AF44B86A85F0388CD856510830AC2854 /* Pods-vilcore_Example-resources.sh */,
+				885AD81686D99CC5EBA50C40FE3742D4 /* Pods-vilcore_Example-umbrella.h */,
+				F2F30FD2868C2751550A20F4C0BED514 /* Pods-vilcore_Example.debug.xcconfig */,
+				5D2B7876C82E9E57816B3A664647616E /* Pods-vilcore_Example.release.xcconfig */,
+			);
+			name = "Pods-vilcore_Example";
+			path = "Target Support Files/Pods-vilcore_Example";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C6DEA2EAFCFBBB96782559A5D832E596 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D25B5721C09DA6BCFA2424955F00778 /* Info.plist */,
+				27A58529999F01BE2CC078D143787A1E /* vilcore.modulemap */,
+				38BB352DAF3D74162130E771B3563279 /* vilcore.xcconfig */,
+				93894B5A97A8BDF73F4E7A0F9F8A5A1D /* vilcore-dummy.m */,
+				7AB87EB02710369BFFF84BC43D31D134 /* vilcore-prefix.pch */,
+				A5C863C93091822E6454B86245887311 /* vilcore-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/vilcore";
+			sourceTree = "<group>";
+		};
+		D0ED850A4592D5E805AC10271179F06F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C1A91FB9EC6D5E8A84A52D68314E4 /* Pods_vilcore_Example.framework */,
+				9E6307EAD038EF2B10413E6C28AA5FE1 /* Pods_vilcore_Tests.framework */,
+				6DD0351C1BA86EF45BD1C7FD1F45EE70 /* vilcore.bundle */,
+				692FAAED9EADEB6B75091A150773D19E /* vilcore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E925B30736169421263B9FB2B9586AC8 /* Pods-vilcore_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B875DAE217403E96EDD6D476D65ABE6B /* Info.plist */,
+				1EBED4962166F10A3E734F8C25888143 /* Pods-vilcore_Tests.modulemap */,
+				CD2545416928CCF1A49A2BA85D010AAE /* Pods-vilcore_Tests-acknowledgements.markdown */,
+				6DFBE15CB07BDA36CBD0F17E2CAADC51 /* Pods-vilcore_Tests-acknowledgements.plist */,
+				821CF87C780FD911EDF7D26B3B6C8CEF /* Pods-vilcore_Tests-dummy.m */,
+				C55A5D8685425C36F7D57CFB31135D08 /* Pods-vilcore_Tests-frameworks.sh */,
+				788ECB4299144F4D8B087A2069C65ADF /* Pods-vilcore_Tests-resources.sh */,
+				16436ED790A1790681E6601EA0480514 /* Pods-vilcore_Tests-umbrella.h */,
+				3B0BB2E57B9FB6D0714FF297DA55DFB3 /* Pods-vilcore_Tests.debug.xcconfig */,
+				220E506530586122E5498DDD5FEFDCAF /* Pods-vilcore_Tests.release.xcconfig */,
+			);
+			name = "Pods-vilcore_Tests";
+			path = "Target Support Files/Pods-vilcore_Tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7568BE8D782459F04B466E30957886F1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C042ABD2B3BB5FB829A978ABCDBACA70 /* Pods-vilcore_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768BFDC344E5384DF5CF284FB143902D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EA4C966F608FFDEC7F864E68316F55D /* vilcore-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CFD787C204363A9108B28BA610C283F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				922E0CF3E2EBFD800F31D8726A2A2669 /* Pods-vilcore_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		205EBD98323F7859771C81E29CAA05C5 /* Pods-vilcore_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E14ADFE74411ED74B38B1F08A83647E /* Build configuration list for PBXNativeTarget "Pods-vilcore_Example" */;
+			buildPhases = (
+				E41901D8E755E34840D66BC97E42755F /* Sources */,
+				C11200DF053A0323CAE3D524F3D8DA32 /* Frameworks */,
+				8CFD787C204363A9108B28BA610C283F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C087E45F1F6FECE005B1B671FF74024B /* PBXTargetDependency */,
+			);
+			name = "Pods-vilcore_Example";
+			productName = "Pods-vilcore_Example";
+			productReference = 7A2C1A91FB9EC6D5E8A84A52D68314E4 /* Pods_vilcore_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1871222730D38E9F5E2F7D664EFE6D4 /* Pods-vilcore_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 571A921406BF8D4198B0AF6D106BCD79 /* Build configuration list for PBXNativeTarget "Pods-vilcore_Tests" */;
+			buildPhases = (
+				66EF45AE8979935D219FFFA64013AADC /* Sources */,
+				87052BF52BB95B2F99E19EE508C3C09A /* Frameworks */,
+				7568BE8D782459F04B466E30957886F1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5329D06F737D230FF2C6CCDC417D691F /* PBXTargetDependency */,
+			);
+			name = "Pods-vilcore_Tests";
+			productName = "Pods-vilcore_Tests";
+			productReference = 9E6307EAD038EF2B10413E6C28AA5FE1 /* Pods_vilcore_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E61FC3FA28196D78BB9E554E15A51C4B /* vilcore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E310D27E989598DC0E7A19EA13DEBF5 /* Build configuration list for PBXNativeTarget "vilcore" */;
+			buildPhases = (
+				7B02E31CE8DD71C8F32DCAE520C69BD6 /* Sources */,
+				DA40B414703B8B461C27F770EB4FF6E1 /* Frameworks */,
+				4E3C598D0E435E83A04A1FB8B8549741 /* Resources */,
+				768BFDC344E5384DF5CF284FB143902D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BFDA403CD646371CA981EEC6D32D2EC /* PBXTargetDependency */,
+			);
+			name = vilcore;
+			productName = vilcore;
+			productReference = 692FAAED9EADEB6B75091A150773D19E /* vilcore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F4FB6D61333A96108D8EBBD89771B7EE /* vilcore-vilcore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846D4E6BBEC9778ED2D0361277B92449 /* Build configuration list for PBXNativeTarget "vilcore-vilcore" */;
+			buildPhases = (
+				71FC53CDF25EF051A7F3015EC10B2F5B /* Sources */,
+				1990CA0C0F1D8D18BE5EDB0E0A04F7CF /* Frameworks */,
+				A9565A51564743C756F611844808CCA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "vilcore-vilcore";
+			productName = "vilcore-vilcore";
+			productReference = 6DD0351C1BA86EF45BD1C7FD1F45EE70 /* vilcore.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = D0ED850A4592D5E805AC10271179F06F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				205EBD98323F7859771C81E29CAA05C5 /* Pods-vilcore_Example */,
+				C1871222730D38E9F5E2F7D664EFE6D4 /* Pods-vilcore_Tests */,
+				E61FC3FA28196D78BB9E554E15A51C4B /* vilcore */,
+				F4FB6D61333A96108D8EBBD89771B7EE /* vilcore-vilcore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E3C598D0E435E83A04A1FB8B8549741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81FC66407A75B18AA9047C941A901EA9 /* vilcore.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9565A51564743C756F611844808CCA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66EF45AE8979935D219FFFA64013AADC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E668757F05CE15A3FE716FFAA23C294 /* Pods-vilcore_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71FC53CDF25EF051A7F3015EC10B2F5B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B02E31CE8DD71C8F32DCAE520C69BD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13207F1ADD40639EDC6B64318E9311E /* ReplaceMe.swift in Sources */,
+				5EFE9D15F67222420EE7A52EAADE4997 /* vilcore-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E41901D8E755E34840D66BC97E42755F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8EEAEE837E29CA5859044B40F09468B /* Pods-vilcore_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5329D06F737D230FF2C6CCDC417D691F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = vilcore;
+			target = E61FC3FA28196D78BB9E554E15A51C4B /* vilcore */;
+			targetProxy = 78BF3F0C20F2AFD730CD6B240AD94538 /* PBXContainerItemProxy */;
+		};
+		5BFDA403CD646371CA981EEC6D32D2EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "vilcore-vilcore";
+			target = F4FB6D61333A96108D8EBBD89771B7EE /* vilcore-vilcore */;
+			targetProxy = 384E91B2AADA2899150E4E830296609F /* PBXContainerItemProxy */;
+		};
+		C087E45F1F6FECE005B1B671FF74024B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = vilcore;
+			target = E61FC3FA28196D78BB9E554E15A51C4B /* vilcore */;
+			targetProxy = 5D86E7469BDFA1448A2F958E48951B38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		02D0537B6BD8AADE61B122289D4FA37C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38BB352DAF3D74162130E771B3563279 /* vilcore.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = vilcore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		310805BE34736B5DD88573226D7D403B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0BB2E57B9FB6D0714FF297DA55DFB3 /* Pods-vilcore_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-vilcore_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-vilcore_Tests/Pods-vilcore_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_vilcore_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3ABC9832E7F1B2DEB2478FD2BF5870DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38BB352DAF3D74162130E771B3563279 /* vilcore.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/vilcore/vilcore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/vilcore/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/vilcore/vilcore.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = vilcore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		552D02D5BA751AC2E8790D2811D496CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		96F31470520487D3C296A4061696183B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38BB352DAF3D74162130E771B3563279 /* vilcore.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = vilcore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		BB38CCA6518906848362C47A6317C2FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 220E506530586122E5498DDD5FEFDCAF /* Pods-vilcore_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-vilcore_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-vilcore_Tests/Pods-vilcore_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_vilcore_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D6F3C66782196A2DBD16E3EFA8A9843C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38BB352DAF3D74162130E771B3563279 /* vilcore.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/vilcore/vilcore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/vilcore/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/vilcore/vilcore.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = vilcore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E4BAC9E250FFA1302B07F0CC29E883AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2F30FD2868C2751550A20F4C0BED514 /* Pods-vilcore_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-vilcore_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-vilcore_Example/Pods-vilcore_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_vilcore_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F7B8D2E61512C90A6CA15D6C84F8DABC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D2B7876C82E9E57816B3A664647616E /* Pods-vilcore_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-vilcore_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-vilcore_Example/Pods-vilcore_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_vilcore_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				552D02D5BA751AC2E8790D2811D496CA /* Debug */,
+				10DE1947DAC0ED28F6C0A9F9BD75D546 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E310D27E989598DC0E7A19EA13DEBF5 /* Build configuration list for PBXNativeTarget "vilcore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6F3C66782196A2DBD16E3EFA8A9843C /* Debug */,
+				3ABC9832E7F1B2DEB2478FD2BF5870DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		571A921406BF8D4198B0AF6D106BCD79 /* Build configuration list for PBXNativeTarget "Pods-vilcore_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				310805BE34736B5DD88573226D7D403B /* Debug */,
+				BB38CCA6518906848362C47A6317C2FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E14ADFE74411ED74B38B1F08A83647E /* Build configuration list for PBXNativeTarget "Pods-vilcore_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4BAC9E250FFA1302B07F0CC29E883AB /* Debug */,
+				F7B8D2E61512C90A6CA15D6C84F8DABC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846D4E6BBEC9778ED2D0361277B92449 /* Build configuration list for PBXNativeTarget "vilcore-vilcore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96F31470520487D3C296A4061696183B /* Debug */,
+				02D0537B6BD8AADE61B122289D4FA37C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

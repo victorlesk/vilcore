@@ -1,0 +1,6 @@
+framework module Pods_vilcore_Tests {
+  umbrella header "Pods-vilcore_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
