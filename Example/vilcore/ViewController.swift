@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import vilcore
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        NSLog("loaded");
+        
+        var a:vilcore.Swiftfel;
     }
 
     override func didReceiveMemoryWarning() {

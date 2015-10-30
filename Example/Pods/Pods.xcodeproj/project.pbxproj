@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5EFE9D15F67222420EE7A52EAADE4997 /* vilcore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93894B5A97A8BDF73F4E7A0F9F8A5A1D /* vilcore-dummy.m */; };
+		010B4BD06819D2C8201F05084272EBF2 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6596CC126B0B1CE054327499E4357D8F /* UIViewExtensions.swift */; };
+		1A80AC6E49F1BC478CA66C6D859EE8D1 /* Swiftfel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD0E49AE49B07FF471D3C85191CA2F /* Swiftfel.swift */; };
 		738F417F0612675F61D1FE60E76564C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		73CA6DAD6775B63EE044550A70699BDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		7E668757F05CE15A3FE716FFAA23C294 /* Pods-vilcore_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 821CF87C780FD911EDF7D26B3B6C8CEF /* Pods-vilcore_Tests-dummy.m */; };
@@ -15,9 +16,9 @@
 		922E0CF3E2EBFD800F31D8726A2A2669 /* Pods-vilcore_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 885AD81686D99CC5EBA50C40FE3742D4 /* Pods-vilcore_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9B39836FC62D71F22F2F16FD4AB3B6F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		9EA4C966F608FFDEC7F864E68316F55D /* vilcore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C863C93091822E6454B86245887311 /* vilcore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A13207F1ADD40639EDC6B64318E9311E /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA6A35CE8EB5DB2DD8789B873433C6E /* ReplaceMe.swift */; };
 		A8EEAEE837E29CA5859044B40F09468B /* Pods-vilcore_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FC6C20AD19BF6B4FDB5E8697FCB39B /* Pods-vilcore_Example-dummy.m */; };
 		C042ABD2B3BB5FB829A978ABCDBACA70 /* Pods-vilcore_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16436ED790A1790681E6601EA0480514 /* Pods-vilcore_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D316646D747B98FC3A67FCCE5891DE06 /* vilcore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93894B5A97A8BDF73F4E7A0F9F8A5A1D /* vilcore-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		552FBE7C9D099B5B1F161F17EEEB7E31 /* Pods-vilcore_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vilcore_Example-frameworks.sh"; sourceTree = "<group>"; };
 		5A85822C273E54B210817AC93A3BAFAC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D2B7876C82E9E57816B3A664647616E /* Pods-vilcore_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-vilcore_Example.release.xcconfig"; sourceTree = "<group>"; };
+		6596CC126B0B1CE054327499E4357D8F /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		692FAAED9EADEB6B75091A150773D19E /* vilcore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = vilcore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DD0351C1BA86EF45BD1C7FD1F45EE70 /* vilcore.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vilcore.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DFBE15CB07BDA36CBD0F17E2CAADC51 /* Pods-vilcore_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-vilcore_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -67,8 +69,8 @@
 		7D25B5721C09DA6BCFA2424955F00778 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		821CF87C780FD911EDF7D26B3B6C8CEF /* Pods-vilcore_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-vilcore_Tests-dummy.m"; sourceTree = "<group>"; };
 		885AD81686D99CC5EBA50C40FE3742D4 /* Pods-vilcore_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-vilcore_Example-umbrella.h"; sourceTree = "<group>"; };
+		8BCD0E49AE49B07FF471D3C85191CA2F /* Swiftfel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Swiftfel.swift; sourceTree = "<group>"; };
 		93894B5A97A8BDF73F4E7A0F9F8A5A1D /* vilcore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "vilcore-dummy.m"; sourceTree = "<group>"; };
-		9AA6A35CE8EB5DB2DD8789B873433C6E /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		9E6307EAD038EF2B10413E6C28AA5FE1 /* Pods_vilcore_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vilcore_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C863C93091822E6454B86245887311 /* vilcore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "vilcore-umbrella.h"; sourceTree = "<group>"; };
 		AF44B86A85F0388CD856510830AC2854 /* Pods-vilcore_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-vilcore_Example-resources.sh"; sourceTree = "<group>"; };
@@ -115,20 +117,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17193C58933E4B5177301DF41133C74A /* Pod */ = {
+		1DAA11AE72230CB7911B8A898427563E /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				22067AE7E5A0ACAAED3F346E46B75047 /* Classes */,
+				9DFBF99F8EF69BB9D1BAE1E9F65515BF /* Classes */,
 			);
 			path = Pod;
-			sourceTree = "<group>";
-		};
-		22067AE7E5A0ACAAED3F346E46B75047 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				9AA6A35CE8EB5DB2DD8789B873433C6E /* ReplaceMe.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		5FBF011B0D0592E41B8BB8C8AAD18A33 /* Targets Support Files */ = {
@@ -151,7 +145,7 @@
 		73B1AC291A37D13AE82987190FF427E5 /* vilcore */ = {
 			isa = PBXGroup;
 			children = (
-				17193C58933E4B5177301DF41133C74A /* Pod */,
+				1DAA11AE72230CB7911B8A898427563E /* Pod */,
 				C6DEA2EAFCFBBB96782559A5D832E596 /* Support Files */,
 			);
 			name = vilcore;
@@ -185,6 +179,15 @@
 			);
 			name = "Pods-vilcore_Example";
 			path = "Target Support Files/Pods-vilcore_Example";
+			sourceTree = "<group>";
+		};
+		9DFBF99F8EF69BB9D1BAE1E9F65515BF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8BCD0E49AE49B07FF471D3C85191CA2F /* Swiftfel.swift */,
+				6596CC126B0B1CE054327499E4357D8F /* UIViewExtensions.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -316,7 +319,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E310D27E989598DC0E7A19EA13DEBF5 /* Build configuration list for PBXNativeTarget "vilcore" */;
 			buildPhases = (
-				7B02E31CE8DD71C8F32DCAE520C69BD6 /* Sources */,
+				F39A08E5CDB77F7FEC9396E52E1AAA5D /* Sources */,
 				DA40B414703B8B461C27F770EB4FF6E1 /* Frameworks */,
 				4E3C598D0E435E83A04A1FB8B8549741 /* Resources */,
 				768BFDC344E5384DF5CF284FB143902D /* Headers */,
@@ -411,20 +414,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7B02E31CE8DD71C8F32DCAE520C69BD6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A13207F1ADD40639EDC6B64318E9311E /* ReplaceMe.swift in Sources */,
-				5EFE9D15F67222420EE7A52EAADE4997 /* vilcore-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E41901D8E755E34840D66BC97E42755F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A8EEAEE837E29CA5859044B40F09468B /* Pods-vilcore_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F39A08E5CDB77F7FEC9396E52E1AAA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A80AC6E49F1BC478CA66C6D859EE8D1 /* Swiftfel.swift in Sources */,
+				010B4BD06819D2C8201F05084272EBF2 /* UIViewExtensions.swift in Sources */,
+				D316646D747B98FC3A67FCCE5891DE06 /* vilcore-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

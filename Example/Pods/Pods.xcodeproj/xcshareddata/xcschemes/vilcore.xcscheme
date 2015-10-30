@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8A78414826DC44FBECF6267A'
+               BlueprintIdentifier = '5052F9D920130D66BD701D35'
                BlueprintName = 'vilcore'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'vilcore.framework'>

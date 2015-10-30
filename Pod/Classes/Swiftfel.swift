@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Swiftfel{
-    var a:Int;
+public class Swiftfel{
+    var a:Int!
 }

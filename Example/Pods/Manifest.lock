@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  vilcore: 3966338aaa94d3ff9a9933829d5ae65ff174c4bc
+  vilcore: 4a7aaee4896a59711c2f2cc764ed58b5566e271f
 
 COCOAPODS: 0.39.0

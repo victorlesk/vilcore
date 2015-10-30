@@ -1,15 +1,15 @@
 {
   "name": "vilcore",
   "version": "0.1.0",
-  "summary": "A short description of vilcore.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/vilcore",
+  "summary": "Core swift libraries for VIL projects.",
+  "description": "Core swift libraries for VIL projects.\n\nThis is the second line of the description",
+  "homepage": "https://github.com/victorlesk/vilcore",
   "license": "MIT",
   "authors": {
     "Victor Lesk": "victorlesk@hotmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/vilcore.git",
+    "git": "https://github.com/victorlesk/vilcore.git",
     "tag": "0.1.0"
   },
   "platforms": {
