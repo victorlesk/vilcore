@@ -415,6 +415,25 @@ public extension UIView{
     func setWidthOf(v:UIView){
         setWidth(v.frame.size.width);
     }
+
+    func setSizeOf(v:UIView){
+        setWidth(v.frame.size.width);
+        setHeight(v.frame.size.height);
+    }
+    
+    func setHeightOf(v:UIView,factor f:CGFloat){
+        setHeight(v.frame.size.height * f);
+    }
+    
+    func setWidthOf(v:UIView,factor f:CGFloat){
+        setWidth(v.frame.size.width * f);
+    }
+    
+    func setSizeOf(v:UIView, factor f:CGFloat){
+        setWidth(v.frame.size.width * f);
+        setHeight(v.frame.size.height * f);
+    }
+    
     
     func setWidthOfParent(d:CGFloat){
         setWidth(superview!.frame.size.width * d);
