@@ -8,22 +8,43 @@
 
 import Foundation
 
-public class Logging{
-
-    class func LogBool(b:Bool msg:String? = nil){
-        if(msg){
-            NSLog("%@ (%@)",(b?"true":"false"),msg!);
-        }else{
-            NSLog("%@",(b?"true":"false"));
-        }
+public func LogBool(b:Bool,_ msg:String? = nil){
+    if(nil != msg){
+        NSLog("%@ (%@)",(b ? "true":"false"),msg!);
+    }else{
+        NSLog("%@",(b ? "true":"false"));
     }
-
-    class func LogNil(b:AnyObject? msg:String? = nil){
-        if(msg){
-            NSLog("%@ (%@)",((nil == b)?"nil":"non-nil"),msg!);
-        }else{
-            NSLog("%@",((nil == b)?"nil":"non-nil"));
-        }
-    }
-
 }
+
+public func LogNil(b:AnyObject?,_ msg:String? = nil){
+    if(nil != msg){
+        NSLog("%@ (%@)",((nil == b) ? "nil":"non-nil"),msg!);
+    }else{
+        NSLog("%@",((nil == b) ? "nil":"non-nil"));
+    }
+}
+
+public func LogFrame(b:CGRect,_ msg:String? = nil){
+    if(nil != msg){
+        NSLog("%fx + %fy / %fw x %fh (%@)",b.origin.x,b.origin.y,b.size.width,b.size.height,msg!);
+    }else{
+        NSLog("%fx + %fy / %fw x %fh ",b.origin.x,b.origin.y,b.size.width,b.size.height);
+    }
+}
+
+public func LogPoint(b:CGPoint,_ msg:String? = nil){
+    if(nil != msg){
+        NSLog("%fx + %fy (%@)",b.x,b.y,msg!);
+    }else{
+        NSLog("%fx + %fy ",b.x,b.y);
+    }
+}
+
+public func LogSize(b:CGSize,_ msg:String? = nil){
+    if(nil != msg){
+        NSLog("%fw x %fh (%@)",b.width,b.height,msg!);
+    }else{
+        NSLog("%fw x %fh ",b.width, b.height);
+    }
+}
+
