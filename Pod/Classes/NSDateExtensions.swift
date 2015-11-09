@@ -9,8 +9,8 @@
 import Foundation
 
 public extension String{
-    func DDMMYYYYDate()->NSDate?{
-        let format = NSDateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+    func DDMMYYTTDate()->NSDate?{
+        let format = NSDateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.dateFromString(self);
     }
 }
@@ -59,6 +59,10 @@ public extension NSDate {
     }
     func DDMMYYString()->String{
         let format = NSDateFormatter(); format.dateFormat="dd/MM/yy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+        return format.stringFromDate(self);
+    }
+    func DDMMYYTTString()->String{
+        let format = NSDateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
     }
     func MMMYYYYString()->String{
