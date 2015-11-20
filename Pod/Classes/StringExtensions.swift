@@ -9,7 +9,7 @@
 import Foundation
 
 public extension String{
-    func trim(string:String)->String{
+    func trim()->String{
         return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
     }
     
