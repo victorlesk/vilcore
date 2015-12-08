@@ -13,7 +13,7 @@ public extension String{
         return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet());
     }
     
-    func split(pattern:String,index:Int = 0)->String?{
+    func split(pattern:String,index:Int)->String?{
         var result:[String]?  = split(pattern);
 
         if(result?.count > index){ return result![index]; }
