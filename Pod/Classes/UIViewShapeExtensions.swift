@@ -23,7 +23,6 @@ public extension UIView {
         let circleCentre:CGPoint = CGPointMake(rect.size.width - (rect.size.height / 2.0),rect.size.height / 2.0);
         
         let circleRadius:CGFloat = (rect.size.height * circleDiameterToViewHeightRatio) / 2.0;
-        let lineWidthToCircleRadius:CGFloat     = 0.24;
         let barHalfLengthToCircleRadius:CGFloat = 0.6;
         
         guard let cxt:CGContextRef = UIGraphicsGetCurrentContext() else { return; }
@@ -35,7 +34,7 @@ public extension UIView {
         CGColorGetComponents(color.CGColor)[2],
         1.0);
         
-        CGContextSetLineWidth(cxt,circleRadius * lineWidthToCircleRadius);
+        CGContextSetLineWidth(cxt,1.0);
         CGContextSetLineCap(cxt, .Square);
         
         CGContextBeginPath         (cxt);
@@ -49,6 +48,9 @@ public extension UIView {
             CGContextAddLineToPoint    (cxt, circleCentre.x , circleCentre.y - barHalfLengthToCircleRadius * circleRadius);
             CGContextStrokePath        (cxt);
         }
+
+        CGContextAddArc(cxt, circleCentre.x, circleCentre.y, circleRadius, 0.0, CGFloat(M_PI) * 2.0, 0);
+        CGContextStrokePath(cxt);
     }
 
 }
