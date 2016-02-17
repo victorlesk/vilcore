@@ -118,7 +118,7 @@ public extension UIView{
     }
     
     func verticalAlign(v:UIView){
-    verticalAlign(v, margin:0);
+        verticalAlign(v, margin:0);
     }
     
     func verticalAlign(v:UIView, margin:CGFloat){
@@ -755,6 +755,13 @@ public extension UIView{
     func hugChildrenTopRightWithMargin(margin:CGFloat){
         hugChildrenTopWithMargin(margin);
         hugChildrenLeftWithMargin(margin);
+    }
+    
+    
+    func widenSymmetricallyFactor(d:CGFloat){
+        if(d<0){return;}
+        
+        frame=CGRectMake(self.frame.origin.x -  (self.frame.size.width  / 2.0) * (d - 1.0),self.frame.origin.y,self.frame.size.width  * d,self.frame.size.height);
     }
     
     func widenSymmetrically(d:CGFloat){

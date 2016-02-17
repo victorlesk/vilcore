@@ -57,6 +57,15 @@ public extension NSDate {
         let format = NSDateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
     }
+    
+    class func fromDDMMYYYYString(string:String?)->NSDate?{
+        guard let string = string else {return nil;}
+        
+        let format = NSDateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+        return format.dateFromString(string);
+    }
+
+    
     func DDMMYYString()->String{
         let format = NSDateFormatter(); format.dateFormat="dd/MM/yy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
