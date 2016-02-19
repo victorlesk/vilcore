@@ -82,6 +82,11 @@ public extension NSDate {
         let format = NSDateFormatter(); format.dateFormat="d MMM"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
     }
+    func DDMMMaYYString()->String{
+        //No-break spaces
+        let format = NSDateFormatter(); format.dateFormat="d'\u{00a0}'MMM'\u{00a0}‘'yy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+        return format.stringFromDate(self);
+    }
     func DD()->String{
         let format = NSDateFormatter(); format.dateFormat="d"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
