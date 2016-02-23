@@ -336,6 +336,30 @@ public extension UIView{
     }
     
     
+    func centreBetween(v1:UIView,_ v2:UIView){
+        var topView:UIView?, bottomView:UIView?, leftView:UIView?, rightView:UIView?;
+        
+        if(CGRectGetMaxY(v1.frame) < CGRectGetMinY(v2.frame)){
+            topView = v1;
+            bottomView = v2;
+        }else if(CGRectGetMaxY(v2.frame) < CGRectGetMinY(v1.frame)){
+            topView = v2;
+            bottomView = v1;
+        }
+
+        if(CGRectGetMaxX(v1.frame) < CGRectGetMinX(v2.frame)){
+            leftView = v1;
+            rightView = v2;
+        }else if(CGRectGetMaxX(v2.frame) < CGRectGetMinX(v1.frame)){
+            leftView = v2;
+            rightView = v1;
+        }
+        
+        if let topView  = topView {frame=CGRectMake(frame.origin.x,CGRectGetMaxY(topView.frame) + ((CGRectGetMinY(bottomView!.frame) - CGRectGetMaxY(topView.frame)) - frame.size.height)/2.0,frame.size.width,frame.size.height);}
+        if let leftView = leftView{frame=CGRectMake(CGRectGetMaxX(leftView.frame) + ((CGRectGetMinX(rightView!.frame) - CGRectGetMaxX(leftView.frame)) - frame.size.width)/2.0,frame.origin.y,frame.size.width,frame.size.height);}
+        
+    }
+    
     func stretchToBelow(v:UIView){
         stretchToBelow(v, margin:0);
     }
