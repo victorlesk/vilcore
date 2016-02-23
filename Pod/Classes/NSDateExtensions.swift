@@ -104,6 +104,11 @@ public extension NSDate {
         return format.stringFromDate(self);
     }
 
+    func EEEEDsMMMMyyyyString()->String{
+        let format = NSDateFormatter(); format.dateFormat="EEEE d'suffix' MMMM yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+
+        return format.stringFromDate(self).stringByReplacingOccurrencesOfString("suffix", withString: daySuffix());
+    }
     func dateTimeString2()->String{
         let format = NSDateFormatter(); format.dateFormat="HHmm'h' dd MMM yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
@@ -120,7 +125,29 @@ public extension NSDate {
         let format = NSDateFormatter(); format.dateFormat="HH':00'"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
     }
-
+    
+    func clockAMPMString()->String{
+        let format = NSDateFormatter() ; format.dateFormat="HH:mm a";format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+        format.timeStyle = .ShortStyle;
+        format.AMSymbol = NSLocalizedString("am",comment:"");
+        format.PMSymbol = NSLocalizedString("pm",comment:"");
+        
+        return format.stringFromDate(self);
+    }
+    
+    func daySuffix() -> String {
+        let dayOfMonth = self.components(.Day).day;
+        switch dayOfMonth {
+        case 1: fallthrough
+        case 21: fallthrough
+        case 31: return "st"
+        case 2: fallthrough
+        case 22: return "nd"
+        case 3: fallthrough
+        case 23: return "rd"
+        default: return "th"
+        }
+    }
 }
 
 var gregorianCalendar:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!;
