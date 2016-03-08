@@ -132,6 +132,8 @@ public extension UIView{
     }
     
     func stretchHorizontallyToFillParentWithMargin(margin:CGFloat){
+        frame = CGRectMake(0,frame.origin.y,0,frame.size.height);
+        centreHorizontallyInParent()
         alignParentRightBy(.STRETCHING, margin:margin);
         alignParentLeftBy (.STRETCHING, margin:margin);
     }
@@ -141,18 +143,20 @@ public extension UIView{
     }
     
     func fill(v:UIView){
-        fill(v, passedMargin:0);
+        fill(v, margin:0);
     }
     
-    func fill(v:UIView, passedMargin:CGFloat){
-        let xMargin:CGFloat = (passedMargin * 2 > v.frame.size.width  ? v.frame.size.width  / 2 : passedMargin);
-        let yMargin:CGFloat = (passedMargin * 2 > v.frame.size.height ? v.frame.size.height / 2 : passedMargin);
+    func fill(v:UIView, margin:CGFloat){
+        let xMargin:CGFloat = (margin * 2 > v.frame.size.width  ? v.frame.size.width  / 2 : margin);
+        let yMargin:CGFloat = (margin * 2 > v.frame.size.height ? v.frame.size.height / 2 : margin);
         
         self.frame = CGRectMake(v.frame.origin.x + xMargin, v.frame.origin.y + yMargin,
             v.frame.size.width - (xMargin * 2), v.frame.size.height - (yMargin * 2));
     }
     
     func stretchVerticallyToFillParentWithMargin(margin:CGFloat){
+        frame = CGRectMake(frame.origin.x,0,frame.size.width,0);
+        centreVerticallyInParent();
         alignParentTopBy   (.STRETCHING, margin:margin);
         alignParentBottomBy(.STRETCHING, margin:margin);
     }
@@ -225,7 +229,7 @@ public extension UIView{
         if(by == .MOVING){
             frame=CGRectMake(self.frame.origin.x,margin, self.frame.size.width, self.frame.size.height);
         }else if(by == .STRETCHING){
-            frame=CGRectMake(self.frame.origin.x,margin, self.frame.size.width, self.frame.origin.y + self.frame.size.height - margin);
+            frame=CGRectMake(self.frame.origin.x,margin, self.frame.size.width,self.frame.origin.y + self.frame.size.height - margin);
         }
     }
     
@@ -249,7 +253,7 @@ public extension UIView{
         if(by == .MOVING){
             frame=CGRectMake(margin, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
         }else if(by == .STRETCHING){
-            frame=CGRectMake(margin, self.frame.origin.y, self.frame.origin.x + self.frame.size.width - margin, self.frame.size.height);
+            frame=CGRectMake(margin, self.frame.origin.y,self.frame.origin.x + self.frame.size.width - margin, self.frame.size.height);
         }
     }
     
@@ -373,23 +377,23 @@ public extension UIView{
     }
     
     func stretchToAbove(v:UIView, margin:CGFloat){
-    frame=CGRectMake(self.frame.origin.x,self.frame.origin.y,self.frame.size.width,v.frame.origin.y - margin - self.frame.origin.y);
+        frame=CGRectMake(self.frame.origin.x,self.frame.origin.y,self.frame.size.width,v.frame.origin.y - margin - self.frame.origin.y);
     }
     
     func stretchToLeftOf(v:UIView){
-    stretchToLeftOf(v, margin:0);
+        stretchToLeftOf(v, margin:0);
     }
     
     func stretchToLeftOf(v:UIView, margin:CGFloat){
-    frame=CGRectMake(self.frame.origin.x,self.frame.origin.y,v.frame.origin.x - margin - self.frame.origin.x,self.frame.size.height);
+        frame=CGRectMake(self.frame.origin.x,self.frame.origin.y,v.frame.origin.x - margin - self.frame.origin.x,self.frame.size.height);
     }
     
     func stretchToRightOf(v:UIView){
-    stretchToRightOf(v, margin:0);
+        stretchToRightOf(v, margin:0);
     }
     
     func stretchToRightOf(v:UIView, margin:CGFloat){
-    frame=CGRectMake(CGRectGetMaxX(v.frame) + margin,self.frame.origin.y,CGRectGetMaxX(self.frame) - CGRectGetMaxX(v.frame) - margin, self.frame.size.height);
+        frame=CGRectMake(CGRectGetMaxX(v.frame) + margin,self.frame.origin.y,CGRectGetMaxX(self.frame) - CGRectGetMaxX(v.frame) - margin, self.frame.size.height);
     }
     
     func moveLeft(d:CGFloat){
