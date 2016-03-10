@@ -944,8 +944,32 @@ public extension UIView{
         return self.frame.origin.x > margin && self.frame.origin.y > margin && CGRectGetMaxX(self.superview!.frame) - CGRectGetMaxX(self.frame) > margin && CGRectGetMaxY(superview!.frame) - CGRectGetMaxY(self.frame) > margin;
     }
     
+    func clearsParentHorizontally()->Bool{
+        return clearsParentHorizontallyWithMargin(0);
+    }
+    
+    func clearsParentHorizontallyWithMargin(margin:CGFloat)->Bool{
+        if(nil == superview){
+            return false;
+        }
+        
+        return self.frame.origin.x > margin && CGRectGetMaxX(self.superview!.frame) - CGRectGetMaxX(self.frame) > margin;
+    }
+   
+    func clearsParentVertically()->Bool{
+        return clearsParentVerticallyWithMargin(0);
+    }
+    
+    func clearsParentVerticallyWithMargin(margin:CGFloat)->Bool{
+        if(nil == superview){
+            return false;
+        }
+        
+        return self.frame.origin.y > margin && CGRectGetMaxY(superview!.frame) - CGRectGetMaxY(self.frame) > margin;
+    }
+
     func overlapsHorizontally(v:UIView, margin:CGFloat)->Bool{
-    return (CGRectGetMaxX(self.frame) - CGRectGetMinX(v.frame) > margin && CGRectGetMaxX(v.frame) - CGRectGetMinX(self.frame) > margin);
+        return (CGRectGetMaxX(self.frame) - CGRectGetMinX(v.frame) > margin && CGRectGetMaxX(v.frame) - CGRectGetMinX(self.frame) > margin);
     }
     
     func overlapsHorizontally(v:UIView)->Bool{

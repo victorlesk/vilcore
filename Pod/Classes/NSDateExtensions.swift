@@ -121,6 +121,11 @@ public extension NSDate {
         let format = NSDateFormatter(); format.dateFormat="HH:mm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
     }
+    func clock24hDotString()->String{
+        let format = NSDateFormatter(); format.dateFormat="HH.mm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+        return format.stringFromDate(self);
+    }
+    
     func clock24hHoursOnlyString()->String{
         let format = NSDateFormatter(); format.dateFormat="HH':00'"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
         return format.stringFromDate(self);
