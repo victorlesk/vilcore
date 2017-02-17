@@ -141,15 +141,16 @@ public extension Date {
     }
     
     func daySuffix() -> String {
-        let dayOfMonth = self.components(.day).day;
+        guard let dayOfMonth = self.components(.day).day else {return "";}
+
         switch dayOfMonth {
-        case ?1: fallthrough
-        case ?21: fallthrough
-        case ?31: return "st"
-        case ?2: fallthrough
-        case ?22: return "nd"
-        case ?3: fallthrough
-        case ?23: return "rd"
+        case 1: fallthrough
+        case 21: fallthrough
+        case 31: return "st"
+        case 2: fallthrough
+        case 22: return "nd"
+        case 3: fallthrough
+        case 23: return "rd"
         default: return "th"
         }
     }
