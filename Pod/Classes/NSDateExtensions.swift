@@ -9,31 +9,31 @@
 import Foundation
 
 public extension String{
-    func DDMMYYTTDate()->NSDate?{
-        let format = NSDateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.dateFromString(self);
+    func DDMMYYTTDate()->Date?{
+        let format = DateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: self);
     }
 }
 
-public extension NSDate {
+public extension Date {
     
-    func isLaterThan(date:NSDate)->Bool{
+    func isLaterThan(_ date:Date)->Bool{
         return timeIntervalSince1970 > date.timeIntervalSince1970;
     }
     
-    func isEarlierThan(date:NSDate)->Bool{
+    func isEarlierThan(_ date:Date)->Bool{
         return timeIntervalSince1970 < date.timeIntervalSince1970;
     }
 
-    func daysIntervalSinceDate(otherDate:NSDate)->Int{
-        let startDay:Int = gregorianCalendar.ordinalityOfUnit(NSCalendarUnit.Day,inUnit:NSCalendarUnit.Era,forDate:otherDate);
+    func daysIntervalSinceDate(_ otherDate:Date)->Int{
+        let startDay:Int = (gregorianCalendar as NSCalendar).ordinality(of: NSCalendar.Unit.day,in:NSCalendar.Unit.era,for:otherDate);
     
-        let endDay:Int = gregorianCalendar.ordinalityOfUnit(NSCalendarUnit.Day,inUnit:NSCalendarUnit.Era,forDate:self);
+        let endDay:Int = (gregorianCalendar as NSCalendar).ordinality(of: NSCalendar.Unit.day,in:NSCalendar.Unit.era,for:self);
         
         return endDay - startDay;
     }
     
-    func daysIntervalStringSinceDate(otherDate:NSDate)->String{
+    func daysIntervalStringSinceDate(_ otherDate:Date)->String{
         let interval:Int = daysIntervalSinceDate(otherDate);
 
         if(interval == 0){return NSLocalizedString("Today",comment:""); }
@@ -48,116 +48,116 @@ public extension NSDate {
     }
 
     
-    func components(components:NSCalendarUnit)->NSDateComponents{
-        return  gregorianCalendar.components(components, fromDate: self);
+    func components(_ components:NSCalendar.Unit)->DateComponents{
+        return  (gregorianCalendar as NSCalendar).components(components, from: self);
     
     }
 
     func DDMMYYYYString()->String{
-        let format = NSDateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     
-    class func fromDDMMYYYYString(string:String?)->NSDate?{
+    static func fromDDMMYYYYString(_ string:String?)->Date?{
         guard let string = string else {return nil;}
         
-        let format = NSDateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.dateFromString(string);
+        let format = DateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: string);
     }
 
     
     func DDMMYYString()->String{
-        let format = NSDateFormatter(); format.dateFormat="dd/MM/yy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="dd/MM/yy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func DDMMYYTTString()->String{
-        let format = NSDateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func MMMYYYYString()->String{
-        let format = NSDateFormatter(); format.dateFormat="MMMM yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="MMMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func DDMMMString()->String{
-        let format = NSDateFormatter(); format.dateFormat="d MMM"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="d MMM"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func DDMMMaYYString()->String{
         //No-break spaces
-        let format = NSDateFormatter(); format.dateFormat="d'\u{00a0}'MMM'\u{00a0}‘'yy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="d'\u{00a0}'MMM'\u{00a0}‘'yy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func DD()->String{
-        let format = NSDateFormatter(); format.dateFormat="d"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="d"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func longMonthString()->String{
-        let format = NSDateFormatter(); format.dateFormat="dd MMMM yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="dd MMMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func dateTimeString()->String{
-        let format = NSDateFormatter(); format.dateFormat="dd MMM' at 'HH:mm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="dd MMM' at 'HH:mm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func dayDateTimeString()->String{
-        let format = NSDateFormatter(); format.dateFormat="EEE, dd MMM' at 'HH:mm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="EEE, dd MMM' at 'HH:mm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
 
     func EEEEDsMMMMyyyyString()->String{
-        let format = NSDateFormatter(); format.dateFormat="EEEE d'suffix' MMMM yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
+        let format = DateFormatter(); format.dateFormat="EEEE d'suffix' MMMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
 
-        return format.stringFromDate(self).stringByReplacingOccurrencesOfString("suffix", withString: daySuffix());
+        return format.string(from: self).replacingOccurrences(of: "suffix", with: daySuffix());
     }
     func dateTimeString2()->String{
-        let format = NSDateFormatter(); format.dateFormat="HHmm'h' dd MMM yyyy"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="HHmm'h' dd MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func dateTimeWithSecsString()->String{
-        let format = NSDateFormatter(); format.dateFormat="dd MMM HH:mm ss's'"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="dd MMM HH:mm ss's'"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func clock24hString()->String{
-        let format = NSDateFormatter(); format.dateFormat="HH:mm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="HH:mm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     func clock24hDotString()->String{
-        let format = NSDateFormatter(); format.dateFormat="HH.mm"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="HH.mm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     
     func clock24hHoursOnlyString()->String{
-        let format = NSDateFormatter(); format.dateFormat="HH':00'"; format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        return format.stringFromDate(self);
+        let format = DateFormatter(); format.dateFormat="HH':00'"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
     }
     
     func clockAMPMString()->String{
-        let format = NSDateFormatter() ; format.dateFormat="HH:mm a";format.locale = NSLocale(localeIdentifier: "en_US_POSIX");
-        format.timeStyle = .ShortStyle;
-        format.AMSymbol = NSLocalizedString("am",comment:"");
-        format.PMSymbol = NSLocalizedString("pm",comment:"");
+        let format = DateFormatter() ; format.dateFormat="HH:mm a";format.locale = Locale(identifier: "en_US_POSIX");
+        format.timeStyle = .short;
+        format.amSymbol = NSLocalizedString("am",comment:"");
+        format.pmSymbol = NSLocalizedString("pm",comment:"");
         
-        return format.stringFromDate(self);
+        return format.string(from: self);
     }
     
     func daySuffix() -> String {
-        let dayOfMonth = self.components(.Day).day;
+        let dayOfMonth = self.components(.day).day;
         switch dayOfMonth {
-        case 1: fallthrough
-        case 21: fallthrough
-        case 31: return "st"
-        case 2: fallthrough
-        case 22: return "nd"
-        case 3: fallthrough
-        case 23: return "rd"
+        case ?1: fallthrough
+        case ?21: fallthrough
+        case ?31: return "st"
+        case ?2: fallthrough
+        case ?22: return "nd"
+        case ?3: fallthrough
+        case ?23: return "rd"
         default: return "th"
         }
     }
 }
 
-var gregorianCalendar:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!;
+var gregorianCalendar:Calendar = Calendar(identifier: Calendar.Identifier.gregorian);
 
-public extension NSDateFormatter{
+public extension DateFormatter{
 }
 
 

@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class Crypt {
-    public class func encryptWithKey(key:String, plainText:String)->String?{
+open class Crypt {
+    open class func encryptWithKey(_ key:String, plainText:String)->String?{
 
         var keyBytes   = [UInt8]();
         var plainBytes = [UInt8]();
@@ -20,7 +20,7 @@ public class Crypt {
         let keylen   = keyBytes.count;
         let plainlen = plainBytes.count;
         
-        var cipherByteData = [UInt8](count: plainlen, repeatedValue: 0);
+        var cipherByteData = [UInt8](repeating: 0, count: plainlen);
         
         for i in 0..<plainlen{
             let ptChar = plainBytes[i];
@@ -34,12 +34,12 @@ public class Crypt {
             cipherByteData[i] = cipherChar;
         }
 
-        let cipherText = String(bytes: cipherByteData, encoding: NSUTF8StringEncoding);
+        let cipherText = String(bytes: cipherByteData, encoding: String.Encoding.utf8);
         
         return cipherText;
     }
 
-    public class func decryptWithKey(key:String, cipherText:String)->String?{
+    open class func decryptWithKey(_ key:String, cipherText:String)->String?{
 
         var keyBytes    = [UInt8]();
         var cipherBytes = [UInt8]();
@@ -50,7 +50,7 @@ public class Crypt {
         let keylen    = keyBytes.count;
         let cipherlen = cipherBytes.count;
 
-        var plainByteData = [UInt8](count: cipherlen, repeatedValue: 0);
+        var plainByteData = [UInt8](repeating: 0, count: cipherlen);
         
         for i in 0..<cipherlen{
             let ctChar = cipherBytes[i];
@@ -64,7 +64,7 @@ public class Crypt {
             plainByteData[i] = plainChar;
         }
 
-        let plainText = String(bytes: plainByteData, encoding: NSUTF8StringEncoding);
+        let plainText = String(bytes: plainByteData, encoding: String.Encoding.utf8);
         
         return plainText;
     }

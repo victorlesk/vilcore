@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func LogBool(b:Bool,_ msg:String? = nil){
+public func LogBool(_ b:Bool,_ msg:String? = nil){
     if(nil != msg){
         NSLog("%@ (%@)",(b ? "true":"false"),msg!);
     }else{
@@ -16,7 +16,7 @@ public func LogBool(b:Bool,_ msg:String? = nil){
     }
 }
 
-public func LogNil(b:AnyObject?,_ msg:String? = nil){
+public func LogNil(_ b:AnyObject?,_ msg:String? = nil){
     if(nil != msg){
         NSLog("%@ (%@)",((nil == b) ? "nil":"non-nil"),msg!);
     }else{
@@ -24,7 +24,7 @@ public func LogNil(b:AnyObject?,_ msg:String? = nil){
     }
 }
 
-public func LogFrame(b:CGRect,_ msg:String? = nil){
+public func LogFrame(_ b:CGRect,_ msg:String? = nil){
     if(nil != msg){
         NSLog("%fx + %fy / %fw x %fh (%@)",b.origin.x,b.origin.y,b.size.width,b.size.height,msg!);
     }else{
@@ -32,7 +32,7 @@ public func LogFrame(b:CGRect,_ msg:String? = nil){
     }
 }
 
-public func LogPoint(b:CGPoint,_ msg:String? = nil){
+public func LogPoint(_ b:CGPoint,_ msg:String? = nil){
     if(nil != msg){
         NSLog("%fx + %fy (%@)",b.x,b.y,msg!);
     }else{
@@ -40,7 +40,7 @@ public func LogPoint(b:CGPoint,_ msg:String? = nil){
     }
 }
 
-public func LogSize(b:CGSize,_ msg:String? = nil){
+public func LogSize(_ b:CGSize,_ msg:String? = nil){
     if(nil != msg){
         NSLog("%fw x %fh (%@)",b.width,b.height,msg!);
     }else{
