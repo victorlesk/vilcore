@@ -50,7 +50,7 @@ open class Crypt {
         let keylen    = keyBytes.count;
         let cipherlen = cipherBytes.count;
 
-        var plainByteData = [UInt8](repeating: 0, count: cipherlen);
+        var plainByteData = [UInt8](repeating: 0,count: cipherlen);
         
         for i in 0..<cipherlen{
             let ctChar = cipherBytes[i];
