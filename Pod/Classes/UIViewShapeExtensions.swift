@@ -48,7 +48,7 @@ public extension UIView {
             cxt.strokePath        ();
         }
 
-        cxt.addArc(center: circleCentre, radius: circleRadius, startAngle: 0.0, endAngle: CGFloat(M_PI), clockwise: true);
+        cxt.addArc(center: circleCentre, radius: circleRadius, startAngle: 0.0, endAngle: CGFloat(Double.pi), clockwise: true);
         cxt.strokePath();
     }
 
