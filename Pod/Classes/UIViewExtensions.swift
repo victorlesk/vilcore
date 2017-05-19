@@ -315,6 +315,20 @@ public extension UIView{
         frame=CGRect(x: self.frame.origin.x,y: v.frame.maxY + margin,width: self.frame.size.width,height: self.frame.size.height);
     }
     
+    func ensureBelow(view:UIView){
+        ensureBelow(view, margin:0);
+    }
+    
+    func ensureBelow(_ v:UIView, margin:CGFloat){
+        ensureBelow(d:v.frame.maxY + margin);
+    }
+    
+    func ensureBelow(d:CGFloat){
+        if(frame.origin.y < d){
+            frame=CGRect(x: self.frame.origin.x,y: d,width: self.frame.size.width,height: self.frame.size.height);
+        }
+    }
+    
     func moveToAbove(_ v:UIView){
         moveToAbove(v, margin:0);
     }

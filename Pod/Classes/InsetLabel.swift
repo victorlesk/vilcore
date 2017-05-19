@@ -10,10 +10,10 @@ import UIKit
 
 public class InsetLabel: UILabel {
 
-    var topInset: CGFloat = 0.0
-    var bottomInset: CGFloat = 0.0
-    var leftInset: CGFloat = 0.0
-    var rightInset: CGFloat = 0.0
+    var topInset:    CGFloat = 0.0;
+    var bottomInset: CGFloat = 0.0;
+    var leftInset:   CGFloat = 0.0;
+    var rightInset : CGFloat = 0.0;
     
     public var touchDownColor: UIColor = UIColor.white;
     public var savedBackgroundColor: UIColor = UIColor.white;
