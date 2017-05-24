@@ -9,10 +9,36 @@
 import Foundation
 
 public extension String{
+    //Returns the date-time from a string of the form 31/12/77 1453
     func DDMMYYTTDate()->Date?{
         let format = DateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.date(from: self);
     }
+    
+    //Returns the date from a string of the form 31/12/77
+    func DDMMYYDate()->Date?{
+        let format = DateFormatter(); format.dateFormat="dd/MM/yy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: self);
+    }
+
+    //Returns the date from a string of the form 29 Oct 01
+    func DDMMMYYDate()->Date?{
+        let format = DateFormatter(); format.dateFormat="dd MMM yy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: self);
+    }
+
+    //Returns the date from a string of the form 27/03/2015
+    func DDMMYYYYDate()->Date?{
+        let format = DateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: self);
+    }
+    
+    //Returns the date from a string of the form 30 Sep 1977
+    func DDMMMYYYYDate()->Date?{
+        let format = DateFormatter(); format.dateFormat="dd MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: self);
+    }
+
 }
 
 public extension Date {
@@ -70,6 +96,9 @@ public extension Date {
         let format = DateFormatter(); format.dateFormat="dd/MM/yy"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
+
+    /// Date and time formatter
+    /// - Returns: Date string in format 31/12/99 1847
     func DDMMYYTTString()->String{
         let format = DateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
