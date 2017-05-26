@@ -38,7 +38,19 @@ public extension String{
         let format = DateFormatter(); format.dateFormat="dd MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.date(from: self);
     }
+    
+    //Returns the date-time from a string of the form 201709301234
+    func keyDate()->Date?{
+        let format = DateFormatter(); format.dateFormat="yyyyMMddHHmm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: self);
+        
+    }
 
+    //Returns the date from a string of the form 20170930
+    func keyDateTime()->Date?{
+        let format = DateFormatter(); format.dateFormat="yyyyMMdd"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.date(from: self);
+    }
 }
 
 public extension Date {
@@ -128,8 +140,19 @@ public extension Date {
         let format = DateFormatter(); format.dateFormat="dd MMM' at 'HH:mm"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
+    
     func dayDateTimeString()->String{
         let format = DateFormatter(); format.dateFormat="EEE, dd MMM' at 'HH:mm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+
+    func keyDateTimeString()->String{
+        let format = DateFormatter(); format.dateFormat="yyyyMMddHHmm"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+
+    func keyDateString()->String{
+        let format = DateFormatter(); format.dateFormat="yyyyMMdd"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
 
