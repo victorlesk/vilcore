@@ -1005,4 +1005,13 @@ public extension UIView{
     func overlaps(_ v:UIView)->Bool{
         return overlapsHorizontally(v) && overlapsVertically(v);
     }
+    
+    func loadFromTemplate(_ v:UIView){
+        for sv in v.subviews {
+            sv.removeFromSuperview();
+            addSubview(sv);
+        }
+        
+        fill(v);
+    }
 }
