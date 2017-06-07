@@ -96,6 +96,11 @@ public extension Date {
         return format.string(from: self);
     }
 
+    func DDMMMYYYYString()->String{
+        let format = DateFormatter(); format.dateFormat="dd MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+    
     func DDMMString()->String{
         let format = DateFormatter(); format.dateFormat="dd/MM"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
