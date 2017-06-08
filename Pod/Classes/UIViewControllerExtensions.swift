@@ -16,4 +16,10 @@ public extension UIViewController{
             }
         });
     }
+    
+    func prepareForFadeIn(){
+        for v in self.view.subviews {
+                v.alpha = 0.0;
+        }
+    }
 }
