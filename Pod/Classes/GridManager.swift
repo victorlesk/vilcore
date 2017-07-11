@@ -54,7 +54,7 @@ public class GridManager{
         }else{
             v.verticalAlign(lastView!);
         }
-        
+
         ix += 1;
 
         if(ix == maxColumns){
