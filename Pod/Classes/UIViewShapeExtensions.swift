@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+
+public enum Shape{
+    case square;
+    case circle;
+    case rectangle;
+    case octagon;
+    case hexagon;
+    case diamond;
+}
+
 public extension UIView {
     class func drawThinPlusInRect(_ rect:CGRect,color:UIColor){
         UIView.drawThinPlusOrMinusInRect(rect, color: color, boolPlus: true);
