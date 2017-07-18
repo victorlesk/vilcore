@@ -133,6 +133,11 @@ public extension Date {
         let format = DateFormatter(); format.dateFormat="d MMM"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
+    func DDString()->String{
+        let format = DateFormatter(); format.dateFormat="d"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+
     func DDMMMaYYString()->String{
         //No-break spaces
         let format = DateFormatter(); format.dateFormat="d'\u{00a0}'MMM'\u{00a0}‘'yy"; format.locale = Locale(identifier: "en_US_POSIX");
