@@ -125,8 +125,28 @@ public extension Date {
         let format = DateFormatter(); format.dateFormat="dd/MM/yy HHmm"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
-    func MMMYYYYString()->String{
+    func MMMMYYYYString()->String{
         let format = DateFormatter(); format.dateFormat="MMMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+    func MMMYYYYString()->String{
+        let format = DateFormatter(); format.dateFormat="MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+    func YYYYMMMDDString()->String{
+        let format = DateFormatter(); format.dateFormat="yyyy MMM dd"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+    func MMMDDString()->String{
+        let format = DateFormatter(); format.dateFormat="MMM dd"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+    func YYYYMMMDString()->String{
+        let format = DateFormatter(); format.dateFormat="yyyy MMM d"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+    func MMMDString()->String{
+        let format = DateFormatter(); format.dateFormat="MMM d"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
     func DDMMMString()->String{
@@ -134,6 +154,10 @@ public extension Date {
         return format.string(from: self);
     }
     func DDString()->String{
+        let format = DateFormatter(); format.dateFormat="dd"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
+    func DString()->String{
         let format = DateFormatter(); format.dateFormat="d"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
