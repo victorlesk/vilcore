@@ -1014,4 +1014,20 @@ public extension UIView{
         
         fill(v);
     }
+
+    var bottomClearance:CGFloat{
+        return (superview?.frame.height ?? 0) - frame.maxY;
+    }
+
+    var topClearance:CGFloat{
+        return frame.minY;
+    }
+
+    var rightClearance:CGFloat{
+        return (superview?.frame.width ?? 0) - frame.maxX;
+    }
+    
+    var leftClearance:CGFloat{
+    return frame.minX;
+    }
 }

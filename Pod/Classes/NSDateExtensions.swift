@@ -184,6 +184,10 @@ public extension Date {
         let format = DateFormatter(); format.dateFormat="EEE, dd MMM' at 'HH:mm"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
+    func timeDayDateString()->String{
+        let format = DateFormatter(); format.dateFormat="HH:mm EEE dd MMMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
 
     func keyDateTimeString()->String{
         let format = DateFormatter(); format.dateFormat="yyyyMMddHHmm"; format.locale = Locale(identifier: "en_US_POSIX");
