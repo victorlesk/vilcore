@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+  Cause an app to crash
+ */
 public func Crash(){
     var crashWithMissingValueInDicitonary = Dictionary<Int,Int>()
     let crashInt = crashWithMissingValueInDicitonary[1]!
