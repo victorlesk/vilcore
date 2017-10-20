@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DatePickerDelegate{
-    func datePicker(datePicker _datePicker:DatePicker, didReturnDate _date:NSDate);
+public protocol DatePickerDelegate{
+    func datePicker(datePicker _datePicker:DatePicker, didReturnDate _date:Date);
 }

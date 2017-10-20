@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-class DatePicker:UIView{
-    var datePickable = true;
-    var timePickable = false;
+public class DatePicker:UIView{
+    public var datePickable = true;
+    public var timePickable = false;
     
-    var minimumDate:NSDate?
-    var maximumDate:NSDate?
+    public var minimumDate:Date?
+    public var maximumDate:Date?
 
     var monthLabel:InsetLabel?;
     var monthLeftLabel:InsetLabel?;
@@ -25,14 +25,16 @@ class DatePicker:UIView{
 
     var doneLabel:InsetLabel?;
     
-    var font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize);
-    var darkBackgroundColor = UIColor.black;
-    var midBackgroundColor = UIColor.lightGray;
-    var lightBackgroundColor = UIColor.white;
-    var darkTextColor = UIColor.black;
-    var lightTextColor = UIColor.white;
+    public var font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize);
+    public var darkBackgroundColor = UIColor.black;
+    public var midBackgroundColor = UIColor.lightGray;
+    public var lightBackgroundColor = UIColor.white;
+    public var darkTextColor = UIColor.black;
+    public var lightTextColor = UIColor.white;
     
-    required init?(coder aDecoder: NSCoder) {
+    public weak var originalView:UIView?
+    
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
     }
 
@@ -40,7 +42,7 @@ class DatePicker:UIView{
         super.init(frame:frame);
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews();
         
         for l:InsetLabel! in dateLabels.values {

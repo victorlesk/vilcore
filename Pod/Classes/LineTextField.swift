@@ -8,23 +8,23 @@
 
 import UIKit
 
-class LineTextField: UITextField {
+public class LineTextField: UITextField {
 
-    var lineColor:UIColor = UIColor.black;
-    var lineHeight:CGFloat = 2.0;
+    public var lineColor:UIColor = UIColor.black;
+    public var lineHeight:CGFloat = 2.0;
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
     }
 
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         super.draw(rect);
 
         guard let context = UIGraphicsGetCurrentContext() else { return; }

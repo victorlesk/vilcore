@@ -1,5 +1,5 @@
 //
-//  NSDateExtensions.swift
+//  DateExtensions.swift
 //  Pods
 //
 //  Created by Victor Lesk on 06/11/2015.
