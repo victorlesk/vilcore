@@ -249,6 +249,24 @@ public extension Date {
         default: return "th"
         }
     }
+    
+    func startOfNextMonth() -> Date{
+        let components = self.components(.year | .month);
+
+        let newYear = (components.month == 11 ? components.year + 1 : components.year);
+        let newMonth = ( components.month == 11 ? 0 : components.month + 1);
+
+        String.DDMMYYYYDate("01\(newMonth + 1)\(newYear)");
+    }
+
+    func startOfPreviousMonth() -> Date{
+        let components = self.components(.year| .month);
+        
+        let newYear = (components.month == 0 ? components.year - 1 : components.year);
+        let newMonth = ( components.month == 0 ? 11 : components.month - 1);
+        
+        String.DDMMYYYYDate("01\(newMonth + 1)\(newYear)");
+    }
 }
 
 var gregorianCalendar:Calendar = Calendar(identifier: Calendar.Identifier.gregorian);

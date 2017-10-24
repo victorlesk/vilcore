@@ -212,6 +212,18 @@ public extension UIView{
         frame=CGRect(x: 0.5 * (superview!.frame.size.width - self.frame.size.width),y: self.frame.origin.y,width: self.frame.size.width,height: self.frame.size.height);
     }
     
+    func centreHorizontallyAtTopOfParent(){
+        frame=CGRect(x: 0.5 * (superview!.frame.size.width - self.frame.size.width),y: self.frame.origin.y,width: self.frame.size.width,height: self.frame.size.height);
+        
+        alignParentTopBy(.moving);
+    }
+
+    func centreHorizontallyAtTopOfParentWithMargin(_ _margin:CGFloat){
+        frame=CGRect(x: 0.5 * (superview!.frame.size.width - self.frame.size.width),y: self.frame.origin.y,width: self.frame.size.width,height: self.frame.size.height);
+        
+        alignParentTopBy(.moving,margin:_margin);
+    }
+
     func centreVerticallyInParent(){
         frame=CGRect(x: self.frame.origin.x, y: 0.5 * (superview!.frame.size.height - self.frame.size.height),width: self.frame.size.width,height: self.frame.size.height);
     }
