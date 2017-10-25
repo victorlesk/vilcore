@@ -95,6 +95,11 @@ public extension Date {
         let format = DateFormatter(); format.dateFormat="dd/MM/yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
+ 
+    func MMYYYYString()->String{
+        let format = DateFormatter(); format.dateFormat="MM/yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+        return format.string(from: self);
+    }
 
     func DDMMMYYYYString()->String{
         let format = DateFormatter(); format.dateFormat="dd MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
@@ -251,22 +256,66 @@ public extension Date {
     }
     
     func startOfNextMonth() -> Date{
-        let components = self.components(.year | .month);
+        let components = gregorianCalendar.dateComponents([Calendar.Component.year,Calendar.Component.month],from:self);
 
-        let newYear = (components.month == 11 ? components.year + 1 : components.year);
-        let newMonth = ( components.month == 11 ? 0 : components.month + 1);
+        let newYear = (components.month == 12 ? components.year! + 1 : components.year!);
+        let newMonth = String(format: "%02d", ((components.month == 12 ? 1 : components.month! + 1)));
 
-        String.DDMMYYYYDate("01\(newMonth + 1)\(newYear)");
+        return ("01/\(newMonth)/\(newYear)").DDMMYYYYDate()!;
     }
 
     func startOfPreviousMonth() -> Date{
-        let components = self.components(.year| .month);
+        let components = gregorianCalendar.dateComponents([Calendar.Component.year,Calendar.Component.month],from:self);
         
-        let newYear = (components.month == 0 ? components.year - 1 : components.year);
-        let newMonth = ( components.month == 0 ? 11 : components.month - 1);
+        let newYear = (components.month == 1 ? components.year! - 1 : components.year!);
+        let newMonth = String(format: "%02d", ((components.month == 1 ? 12 : components.month! - 1)));
         
-        String.DDMMYYYYDate("01\(newMonth + 1)\(newYear)");
+        return ("01/\(newMonth)/\(newYear)").DDMMYYYYDate()!;
     }
+
+    func mostRecentSunday() -> Date{
+        var returnDate = self.addingTimeInterval(0);
+        
+        while (true){
+            let components = gregorianCalendar.dateComponents([Calendar.Component.weekday], from:returnDate);
+            
+            if(components.weekday == 7){ return returnDate ; }
+            
+            returnDate = returnDate.addingTimeInterval( -70000 );
+        }
+    }
+    
+    func nextDay() -> Date{
+        var returnDate = self.addingTimeInterval(0);
+        let startDay = gregorianCalendar.dateComponents([Calendar.Component.weekday], from:self).weekday;
+        
+        while (true){
+            let components = gregorianCalendar.dateComponents([Calendar.Component.weekday,Calendar.Component.day,Calendar.Component.month,Calendar.Component.year], from:returnDate);
+            if(components.weekday != startDay){
+                let newDay   = String(format: "%02d", components.day!);
+                let newMonth = String(format: "%02d", components.month!);
+                let newYear  = String(format: "%02d", components.year!);
+                
+                return ("\(newDay)/\(newMonth)/\(newYear)").DDMMYYYYDate()!;
+            }
+            
+            returnDate = returnDate.addingTimeInterval( 50000 );
+        }
+    }
+    
+    func isSameDayAs(_ _date:Date?) -> Bool{
+        guard let _date = _date else {return false;}
+        
+        let selfComponents = gregorianCalendar.dateComponents([Calendar.Component.day,Calendar.Component.month,Calendar.Component.year], from:self);
+        let otherComponents = gregorianCalendar.dateComponents([Calendar.Component.day,Calendar.Component.month,Calendar.Component.year], from:_date);
+        
+        return ((selfComponents.year == otherComponents.year) && (selfComponents.month == otherComponents.month) && (selfComponents.day == otherComponents.day));
+    }
+
+    func startOfCurrentMonth() -> Date{
+        return ("01/\(self.MMYYYYString())").DDMMYYYYDate()!;
+    }
+
 }
 
 var gregorianCalendar:Calendar = Calendar(identifier: Calendar.Identifier.gregorian);

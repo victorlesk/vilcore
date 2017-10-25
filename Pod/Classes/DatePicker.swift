@@ -12,6 +12,8 @@ public class DatePicker:UIView{
     var boolPickDate = true;
     var boolPickTime = false;
     
+    var boolHasDoneButton = true;
+    
     public var delegate:DatePickerDelegate?;
     
     public var originalView:UIView?
@@ -19,12 +21,12 @@ public class DatePicker:UIView{
     public var datePickable = true;
     public var timePickable = false;
 
-    public var currentShownDate:Date = Date();
-    public var currentPickedDate:Date = Date();
+    public var currentShownDate:Date = Date().startOfCurrentMonth();
+    public var currentPickedDate:Date?;
     public var minimumDate:Date?
     public var maximumDate:Date?
 
-    var mainView:UIView;
+    public var mainView:UIView;
     var calendarView:UIView?
     var timeView:UIView?
     
@@ -36,9 +38,10 @@ public class DatePicker:UIView{
     var hourTextField:LineTextField?;
     var minuteTextField:LineTextField?;
 
-    var doneLabel:InsetLabel?;
+    var doneButton:UIButton?;
     
     public var font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize);
+    public var boldFont:UIFont = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize);
     public var darkBackgroundColor = UIColor.black;
     public var midBackgroundColor = UIColor.lightGray;
     public var lightBackgroundColor = UIColor.white;
@@ -76,20 +79,34 @@ public class DatePicker:UIView{
         }
         dateLabels.removeAll();
 
+        var lastSectionView:UIView?
+        
         if(boolPickDate){
             var lastView:UIView?
-            
+
             let newCalendarView = calendarView ?? UIView(frame:mainView.frame);
             monthLabel = monthLabel ?? InsetLabel(frame:mainView.frame)
             monthLeftLabel = monthLeftLabel ?? InsetLabel(frame:mainView.frame)
-            monthRightLabel = monthLeftLabel ?? InsetLabel(frame:mainView.frame)
+            monthRightLabel = monthRightLabel ?? InsetLabel(frame:mainView.frame)
             
-            monthLabel?.text = currentShownDate.MMMYYYYString();
+            monthLabel?.text = currentShownDate.MMMMYYYYString();
+            monthLabel?.topInset = 4;
+            monthLabel?.bottomInset = 4;
+            monthLabel?.leftInset = 4;
+            monthLabel?.rightInset = 4;
             monthLeftLabel?.text = "\u{25C0}";
             monthRightLabel?.text = "\u{25B6}";
+            monthLabel?.font = font;
 
+            for l in [monthLeftLabel, monthRightLabel]{
+                l?.topInset = 8;
+                l?.bottomInset = 8;
+                l?.leftInset = 8;
+                l?.rightInset = 8;
+                l?.font = UIFont.boldSystemFont(ofSize: 24);
+            }
+            
             for l in [ monthLabel, monthLeftLabel, monthRightLabel ]{
-                l?.font = font;
                 l?.textColor = darkTextColor;
                 l?.backgroundColor = lightBackgroundColor;
                 if(nil != l){newCalendarView.addSubview(l!);}
@@ -98,17 +115,79 @@ public class DatePicker:UIView{
                 l?.sizeToFit();
             }
 
+            monthLeftLabel?.alignParentTopLeftBy(.moving);
+            monthRightLabel?.alignParentTopRightBy(.moving);
             monthLabel?.centreHorizontallyAtTopOfParent();
-            monthLeftLabel?.alignParentLeftBy(.moving);
-            monthRightLabel?.alignParentRightBy(.moving);
-            
+            monthLabel?.centreVerticallyIn(monthLeftLabel!);
+
             for l in [monthLeftLabel, monthRightLabel]{
                 l?.isUserInteractionEnabled = true;
-                l?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(monthStepperTapHandler(g:))));
+                l?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(monthStepperHandler(g:))));
             }
+            
+            for d in [UISwipeGestureRecognizerDirection.left,UISwipeGestureRecognizerDirection.right]{
+                let g = UISwipeGestureRecognizer(target: self, action: #selector(monthStepperHandler(g:)));
+                g.direction = d;
+                newCalendarView.addGestureRecognizer(g);
+            }
+
+
+            lastView = monthRightLabel;
+
+            var loopDate = currentShownDate.mostRecentSunday();
+
+            let viewWidth = newCalendarView.frame.width/7.0;
+
+            var boolInMonth = false;
+            let startOfNextMonth = currentShownDate.startOfNextMonth();
+            
+            for dayIndex in 0...34{
+                if(loopDate.isSameDayAs(currentShownDate)){boolInMonth = true;}
+                else if(loopDate.isSameDayAs(startOfNextMonth)){boolInMonth = false;}
+                
+                let dayOfWeek = dayIndex % 7;
+                //let weekOfCalendar = dayIndex / 7;
+                
+                let newLabel = InsetLabel(frame:newCalendarView.frame);
+                newLabel.font = (boolInMonth ? boldFont :font) ;
+                newLabel.alpha = (boolInMonth ? 1.0 : 0.6);
+                newLabel.topInset = 4;
+                newLabel.bottomInset = 4;
+                newLabel.leftInset = 4;
+                newLabel.rightInset = 4;
+
+                if(loopDate.isSameDayAs(currentPickedDate)){
+                    newLabel.textColor = lightTextColor;
+                    newLabel.backgroundColor = darkBackgroundColor;
+                }else{
+                    newLabel.textColor = darkTextColor;
+                    newLabel.backgroundColor = (dayOfWeek == 0 || dayOfWeek == 6 ? midBackgroundColor : lightBackgroundColor);
+                }
+                
+                newLabel.text = "\(gregorianCalendar.component(Calendar.Component.day, from: loopDate))";
+                newLabel.textAlignment = .center;
+                newLabel.sizeToFit();
+                newLabel.setWidth(viewWidth);
+                newLabel.isUserInteractionEnabled = true;
+                dateLabels[loopDate.DDMMYYYYString()] = newLabel;
+                newCalendarView.addSubview(newLabel);
+                newLabel.addGestureRecognizer(UITapGestureRecognizer(target:self,action:#selector(dateTapHandler(g:))));
+
+                newLabel.moveToBelow(lastView!);
+                
+                newLabel.alignParentLeftBy(.moving, margin:viewWidth * CGFloat(dayOfWeek));
+                
+                if(dayOfWeek == 6) { lastView = newLabel; }
+                
+                loopDate = loopDate.nextDay();
+            }
+
+            newCalendarView.hugChildrenVertically();
             
             mainView.addSubview(newCalendarView);
             calendarView = newCalendarView;
+            calendarView?.centreHorizontallyAtTopOfParent();
+            lastSectionView = calendarView;
         }else{
             calendarView?.removeFromSuperview();
             calendarView = nil;
@@ -119,12 +198,39 @@ public class DatePicker:UIView{
             let newTimeView = timeView ?? UIView(frame:mainView.frame);
             
             mainView.addSubview(newTimeView);
-            timeView = newTimeView
+            timeView = newTimeView;
+
+            lastSectionView = timeView;
         }else{
             timeView?.removeFromSuperview();
             timeView = nil;
         }
 
+        if(boolPickTime || boolHasDoneButton){
+            if(nil == doneButton){
+                doneButton = UIButton(frame: mainView.frame);
+                mainView.addSubview(doneButton!);
+                doneButton?.setTitle(NSLocalizedString("Done",comment:""), for: .normal);
+                doneButton?.titleLabel?.font = boldFont;
+                doneButton?.setTitleColor(darkTextColor, for: .normal);
+                doneButton?.setTitleColor(midBackgroundColor, for: .disabled);
+                doneButton?.setTitleColor(midBackgroundColor, for: .highlighted);
+                doneButton?.setTitleColor(midBackgroundColor, for: .selected);
+                doneButton?.sizeToFit();
+                doneButton?.setWidthOf(monthLabel!);
+                doneButton?.setHeightOf(monthLeftLabel!);
+                doneButton?.centreHorizontallyInParent();
+                doneButton?.addTarget(self, action: #selector(doneTapHandler(sender:)), for: .touchUpInside);
+            }
+            
+            doneButton?.moveToBelow(lastSectionView!);
+            doneButton?.isEnabled = (nil != currentPickedDate);
+        }else{
+            doneButton?.removeFromSuperview();
+            doneButton = nil;
+        }
+
+        mainView.hugChildrenVertically();
         
     }
 
@@ -173,27 +279,50 @@ public class DatePicker:UIView{
     }
     
     @objc func cancelHandler(g:UIGestureRecognizer){
-        NSLog("A");
         if(g.view == self){
-            NSLog("B");
             delegate?.datePickerCancelled(datePicker: self);
         }
     }
     
-    public func setStyle(font _font:UIFont, darkBackgroundColor _darkBackgroundColor:UIColor, midBackgroundColor _midBackgroundColor:UIColor, lightBackgroundColor _lightBackgroundColor:UIColor, darkTextColor _darkTextColor:UIColor, lightTextColor _lightTextColor:UIColor){
+    public func setStyle(font _font:UIFont,boldFont _boldFont:UIFont, darkBackgroundColor _darkBackgroundColor:UIColor, midBackgroundColor _midBackgroundColor:UIColor, lightBackgroundColor _lightBackgroundColor:UIColor, darkTextColor _darkTextColor:UIColor, lightTextColor _lightTextColor:UIColor,hasDoneButton _boolHasDoneButton:Bool){
         font = _font;
+        boldFont = _boldFont;
         darkBackgroundColor = _darkBackgroundColor;
         midBackgroundColor = _midBackgroundColor;
         lightBackgroundColor = _lightBackgroundColor;
         darkTextColor = _darkTextColor;
         lightTextColor = _lightTextColor;
+        boolHasDoneButton = _boolHasDoneButton;
     }
     
-    private func monthStepperTapHandler(g:UITapGestureRecognizer){
+    @objc private func monthStepperHandler(g:UITapGestureRecognizer){
         if(g.view == self.monthRightLabel){
             currentShownDate = currentShownDate.startOfNextMonth();
-        }else if(g.view == self.monthRightLabel){
+            self.setNeedsLayout();
+        }else if(g.view == self.monthLeftLabel){
             currentShownDate = currentShownDate.startOfPreviousMonth();
+            self.setNeedsLayout();
         }
+    }
+    
+    @objc private func dateTapHandler(g:UITapGestureRecognizer){
+        guard let v = g.view else {return;}
+        for (dateString,dateView) in dateLabels{
+            if(dateView == v){
+                currentPickedDate = dateString.DDMMYYYYDate()!;
+                currentShownDate = currentPickedDate!.startOfCurrentMonth();
+
+                self.setNeedsLayout();
+                
+                if(nil == doneButton){
+                    delegate?.datePicker(datePicker: self, didReturnDate: currentPickedDate!);
+                }
+                return;
+            }
+        }
+    }
+    
+    @objc private func doneTapHandler(sender:UIView){
+        delegate?.datePicker(datePicker: self, didReturnDate: currentPickedDate!);
     }
 }
