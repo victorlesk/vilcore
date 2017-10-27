@@ -46,7 +46,8 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
         super.init(frame:frame);
         
         addSubview(mainView);
-        
+        mainView.fillParent();
+
         backgroundColor = UIColor.white.withAlphaComponent(0.7);
         alpha=0.0;
     }
@@ -68,18 +69,23 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
     
     override public func layoutSubviews() {
         super.layoutSubviews();
+        mainView.layer.borderColor = darkBackgroundColor.cgColor;
+        mainView.layer.borderWidth = 2.0;        
+        
         guard let delegate = delegate else { return; }
         
         let numberOfColumns = delegate.numberOfColumnsForMultiPicker(multiPicker: self);
 
         if(scrollViews.count != numberOfColumns){
-            let columnWidth = CGFloat(1.0/CGFloat(numberOfColumns));
+            let columnWidth = CGFloat(mainView.frame.width/CGFloat(numberOfColumns));
             
-            for columnIndex in 0...numberOfColumns{
+            for columnIndex in 0..<numberOfColumns{
                 let newScrollView = UIScrollView(frame:mainView.frame);
                 mainView.addSubview(newScrollView);
                 newScrollView.setWidth(columnWidth);
+                newScrollView.backgroundColor = lightBackgroundColor;
                 newScrollView.alignParentLeftBy(.moving, margin:columnWidth * CGFloat(columnIndex));
+                newScrollView.alignParentTopBy(.moving);
 
                 newScrollView.delegate = self;
                 
@@ -90,24 +96,24 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
         for (_,itemLabel) in itemLabels{
             itemLabel.removeFromSuperview();
         }
-        
         itemLabels.removeAll();
 
         var lastView:UIView?
 
         let baseHeight:CGFloat = 30;
         
-        for column in 0...numberOfColumns{
+        for column in 0..<numberOfColumns{
             let currentScrollView = scrollViews[column];
             let itemCount = delegate.numberOfItemsInColumn(column, forMultiPicker: self);
             
             lastView = nil;
             
-            for item in 0...itemCount{
+            for item in 0..<itemCount{
                 let newItemLabel = InsetLabel(frame:currentScrollView.frame);
                 currentScrollView.addSubview(newItemLabel);
                 newItemLabel.font = boldFont;
                 newItemLabel.text = delegate.multiPicker(multiPicker: self, textForItem: item, inColumn: column);
+                newItemLabel.textAlignment = .center;
                 newItemLabel.sizeToFit();
                 newItemLabel.stretchHorizontallyToFillParent();
                 newItemLabel.setHeight(delegate.multiPicker(multiPicker: self, heightFactorForItem: item, inColumn: column) * baseHeight);
@@ -115,7 +121,7 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
                 if let lastView = lastView{
                     newItemLabel.moveToBelow(lastView);
                 }else{
-                    newItemLabel.alignParentTopBy(.moving, margin:delegate.multiPicker(multiPicker: self, offsetForItem: 0, inColumn: column));
+                    newItemLabel.alignParentTopBy(.moving, margin:delegate.multiPicker(multiPicker: self, offsetForItem: 0, inColumn: column) * newItemLabel.frame.height);
                 }
 
                 let string = "\(column).\(item)";
@@ -135,8 +141,10 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
                 
                 lastView = newItemLabel;
             }
-
+            
+            currentScrollView.contentSize = CGSize(width: currentScrollView.frame.width, height: lastView!.frame.maxY);
         }
+        mainView.hugChildren();
     }
     
     public func show(){
@@ -149,18 +157,18 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelHandler(g:))));
         mainView.isUserInteractionEnabled = true;
         mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(cancelHandler(g:))));
-        
+
         if let originalView = originalView {
             frame = originalView.frame ;
-            self.stretchUp(-self.frame.size.height);
+            self.stretchUp(-(originalView.frame.size.height));
             mainView.fillParent();
         }
         
         UIView.animate(withDuration: 1, animations: {
             self.fillParent();
-            self.mainView.alignParentTopBy(.moving, margin: 100);
+            self.mainView.alignParentTopBy(.moving, margin: self.originalView?.frame.maxY ?? 0.0);
             self.mainView.stretchHorizontallyToFillParentWithMargin(inView.frame.width * 0.08);
-            self.mainView.setHeight(200);
+            self.mainView.setHeightOfParent(0.85);
             self.alpha = 1.0;
         })
     }
@@ -182,7 +190,7 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
         }
     }
     
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         for otherScrollView in scrollViews{
             if(scrollView != otherScrollView){
                 otherScrollView.scrollTo(scrollView.contentOffset);
