@@ -105,7 +105,15 @@ public extension Date {
         let format = DateFormatter(); format.dateFormat="dd MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);
     }
-    
+
+    func dateOfBirthAndAgeString()->String{
+        let format = DateFormatter(); format.dateFormat="d MMM yyyy"; format.locale = Locale(identifier: "en_US_POSIX");
+
+        let age = Int(floor(-timeIntervalSinceNow / 31536000));
+        
+        return format.string(from: self) + " (age \(age))";
+    }
+
     func DDMMString()->String{
         let format = DateFormatter(); format.dateFormat="dd/MM"; format.locale = Locale(identifier: "en_US_POSIX");
         return format.string(from: self);

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class InsetLabel: UILabel {
+open class InsetLabel: UILabel {
 
     var topInset:    CGFloat = 0.0;
     var bottomInset: CGFloat = 0.0;
@@ -17,13 +17,20 @@ public class InsetLabel: UILabel {
     
     public var touchDownColor: UIColor = UIColor.white;
     public var savedBackgroundColor: UIColor = UIColor.white;
+
+    public func setInsets(_ _inset:CGFloat){
+        topInset = _inset;
+        bottomInset = _inset;
+        leftInset = _inset;
+        rightInset = _inset;
+    }
     
-    override public func drawText(in rect: CGRect) {
+    override open func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         super.drawText(in:(UIEdgeInsetsInsetRect(rect, insets)));
     }
     
-    override public func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let insetRect = UIEdgeInsetsInsetRect(bounds, UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset));
         let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
         let invertedInsets = UIEdgeInsets(top: -topInset,
@@ -33,7 +40,7 @@ public class InsetLabel: UILabel {
         return UIEdgeInsetsInsetRect(textRect, invertedInsets);
     }
     
-    override public var intrinsicContentSize:CGSize {
+    override open var intrinsicContentSize:CGSize {
         get{
             var intrinsicSuperViewContentSize = super.intrinsicContentSize;
 
@@ -67,15 +74,15 @@ public class InsetLabel: UILabel {
         setPadding(left:p,top:topInset,right:p,bottom:bottomInset);
     }
     
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         savedBackgroundColor = backgroundColor ?? UIColor.white;
         backgroundColor = touchDownColor;
     }
     
-    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         backgroundColor = savedBackgroundColor;
     }
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         backgroundColor = savedBackgroundColor;
     }
     /*

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 public class DatePicker:UIView{
+    var boolPickYear = true;
     var boolPickDate = true;
     var boolPickTime = false;
     
@@ -16,7 +17,23 @@ public class DatePicker:UIView{
     
     public var delegate:DatePickerDelegate?;
     
-    public var originalView:UIView?
+    public var originalView:UIView?{
+        didSet{
+            if let date = (originalView as? UITextField)?.text?.DDMMYYYYDate(){
+                currentPickedDate = date;
+                currentShownDate = date.startOfCurrentMonth();
+                setNeedsLayout();
+            }else if let date = (originalView as? UITextField)?.text?.DDMMMYYYYDate(){
+                currentPickedDate = date;
+                currentShownDate = date.startOfCurrentMonth();
+                setNeedsLayout();
+            }else if let dateString = (originalView as? UITextField)?.text, let date = "\(dateString) \(Date().components(.year).year!)".DDMMMYYYYDate(){
+                currentPickedDate = date;
+                currentShownDate = date.startOfCurrentMonth();
+                setNeedsLayout();
+            }
+        }
+    }
     
     public var datePickable = true;
     public var timePickable = false;
@@ -29,6 +46,11 @@ public class DatePicker:UIView{
     public var mainView:UIView;
     var calendarView:UIView?
     var timeView:UIView?
+
+    public var minYear = 1910;
+    public var maxYear:Int = Date().components(.year).year!;
+    var yearScrollView:UIScrollView?
+    var yearLabels = [Int:InsetLabel]();
     
     var monthLabel:InsetLabel?;
     var monthLeftLabel:InsetLabel?;
@@ -84,6 +106,75 @@ public class DatePicker:UIView{
         if(boolPickDate){
             var lastView:UIView?
 
+            if(boolPickYear){
+                let newYearScrollView = yearScrollView ?? UIScrollView(frame:mainView.frame);
+                newYearScrollView.backgroundColor = UIColor.white.withAlphaComponent(1.0);
+                newYearScrollView.showsVerticalScrollIndicator = false;
+                
+                for (_,yearLabel) in yearLabels{
+                    yearLabel.removeFromSuperview();
+                }
+                yearLabels.removeAll();
+
+                maxYear   = Date().components(.year).year! + 2;
+                let shownYear = currentShownDate.components(.year).year!;
+                var shownYearLabel:InsetLabel?;
+                
+                var lastYearLabel:InsetLabel?
+                
+                for year in minYear...maxYear{
+                    let yearLabel = InsetLabel(frame:newYearScrollView.frame);
+                    yearLabel.text = "\(year)";
+                    if(shownYear == year){
+                        yearLabel.backgroundColor = midBackgroundColor.withAlphaComponent(1.0);
+                        shownYearLabel = yearLabel;
+                        yearLabel.font = boldFont;
+                    }else{
+                        yearLabel.font = font;
+                        yearLabel.backgroundColor = lightBackgroundColor.withAlphaComponent(1.0);
+                    }
+                    yearLabel.topInset    = 4;
+                    yearLabel.bottomInset = 4;
+                    yearLabel.leftInset   = 4;
+                    yearLabel.rightInset  = 4;
+                    yearLabel.textAlignment = .center;
+                    yearLabel.textColor = darkTextColor;
+                    yearLabel.sizeToFit();
+                    yearLabel.widenSymmetricallyFactor(1.1);
+                    yearLabel.expandSymmetricallyFactor(1.3);
+                    
+                    yearLabel.isUserInteractionEnabled = true;
+                    yearLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(yearLabelTapHandler(g:))));
+                    
+                    newYearScrollView.addSubview(yearLabel);
+
+                    yearLabel.alignParentTopBy(.moving);
+                    
+                    if let lastYearLabel = lastYearLabel {
+                        yearLabel.moveToRightOf(lastYearLabel,margin:-2);
+                    }else{
+                        yearLabel.alignParentLeftBy(.moving);
+                    }
+                    
+                    yearLabels[year] = yearLabel;
+                    
+                    lastYearLabel = yearLabel;
+                }
+
+                newYearScrollView.contentSize = CGSize(width:lastYearLabel!.frame.maxX,height:lastYearLabel!.frame.height);
+
+                if let shownYearLabel = shownYearLabel{
+                    newYearScrollView.setContentOffset(CGPoint(x:shownYearLabel.frame.midX - (newYearScrollView.frame.width / 2.0),y:0), animated:true);
+                }
+                
+                newYearScrollView.setHeightOf(lastYearLabel!);
+                
+                lastSectionView = newYearScrollView;
+                yearScrollView = newYearScrollView;
+                mainView.addSubview(newYearScrollView);
+                newYearScrollView.centreHorizontallyAtTopOfParent();
+            }
+            
             let newCalendarView = calendarView ?? UIView(frame:mainView.frame);
             monthLabel = monthLabel ?? InsetLabel(frame:mainView.frame)
             monthLeftLabel = monthLeftLabel ?? InsetLabel(frame:mainView.frame)
@@ -187,8 +278,11 @@ public class DatePicker:UIView{
             mainView.addSubview(newCalendarView);
             calendarView = newCalendarView;
             calendarView?.centreHorizontallyAtTopOfParent();
+            if (nil != lastSectionView) { calendarView?.moveToBelow(lastSectionView!);}
             lastSectionView = calendarView;
         }else{
+            yearScrollView?.removeFromSuperview();
+            yearScrollView = nil;
             calendarView?.removeFromSuperview();
             calendarView = nil;
         }
@@ -302,6 +396,17 @@ public class DatePicker:UIView{
         }else if(g.view == self.monthLeftLabel){
             currentShownDate = currentShownDate.startOfPreviousMonth();
             self.setNeedsLayout();
+        }
+    }
+
+    @objc private func yearLabelTapHandler(g:UITapGestureRecognizer){
+        guard let v = g.view else {return;}
+        for (year,yearView) in yearLabels{
+            if(yearView == v){
+                currentShownDate = String("\(currentShownDate.DDMMString())/\(year)").DDMMYYYYDate()!;
+                self.setNeedsLayout();
+                return;
+            }
         }
     }
     

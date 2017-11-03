@@ -28,9 +28,11 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
     
     var scrollViews = [UIScrollView]();
 
-    var currentPickedItem:String?
+    public var currentPickedItem:String?
     
     public var mainView:UIView;
+    
+    public var boolInitialScrollQueued = false;
     
     required public init?(coder aDecoder: NSCoder) {
         mainView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 0));
@@ -144,6 +146,22 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
             
             currentScrollView.contentSize = CGSize(width: currentScrollView.frame.width, height: lastView!.frame.maxY);
         }
+        
+        var offset = CGPoint(x:0,y:( scrollViews[0].contentSize.height - scrollViews[0].frame.height ) / 2.0 );
+        
+        if boolInitialScrollQueued{
+            if let pi = currentPickedItem, let label = itemLabels[pi]{
+                offset = CGPoint(x:0,y:label.frame.midY - ( scrollViews[0].frame.height / 2.0 ));
+            }
+            
+            for scrollView in self.scrollViews{
+                scrollView.contentOffset = offset;
+            }
+        }
+
+        boolInitialScrollQueued = false;
+
+        
         mainView.hugChildren();
     }
     
@@ -164,11 +182,14 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
             mainView.fillParent();
         }
         
-        UIView.animate(withDuration: 1, animations: {
+        boolInitialScrollQueued = true;
+
+        UIView.animate(withDuration: 0.4, animations: {
             self.fillParent();
             self.mainView.alignParentTopBy(.moving, margin: self.originalView?.frame.maxY ?? 0.0);
             self.mainView.stretchHorizontallyToFillParentWithMargin(inView.frame.width * 0.08);
             self.mainView.setHeightOfParent(0.85);
+
             self.alpha = 1.0;
         })
     }
