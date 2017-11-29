@@ -1042,4 +1042,52 @@ public extension UIView{
     var leftClearance:CGFloat{
     return frame.minX;
     }
+    
+    func banishUpward(){
+        self.moveUp(self.frame.maxY);
+    }
+
+    func banishDownward(){
+        self.moveDown(self.superview!.frame.maxY - self.frame.minY);
+    }
+    
+    func banishVertically(){
+        if(bottomClearance > topClearance){ banishUpward(); }
+        else { banishDownward();}
+    }
+   
+    func banishRight(){
+        self.moveRight(self.frame.maxX);
+    }
+    
+    func banishLeft(){
+        self.moveDown(self.superview!.frame.maxX - self.frame.minX);
+    }
+
+    func banishHorizontally(){
+        if(rightClearance > leftClearance){ banishLeft(); }
+        else { banishRight();}
+    }
+    
+    func fillParentBelow(_ v:UIView){
+        fillParent();
+        stretchUp(-v.frame.maxY);
+    }
+
+    func fillParentAbove(_ v:UIView){
+        fillParent();
+        stretchDown(-v.frame.minY);
+    }
+    
+    func fillParentToRightOf(_ v:UIView){
+        fillParent();
+        stretchLeft(-v.frame.maxX);
+    }
+    
+    func fillParentToLeftOf(_ v:UIView){
+        fillParent();
+        stretchRight(-v.frame.minX);
+    }
+
+
 }
