@@ -189,9 +189,13 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
             self.mainView.alignParentTopBy(.moving, margin: self.originalView?.frame.maxY ?? 0.0);
             self.mainView.stretchHorizontallyToFillParentWithMargin(inView.frame.width * 0.08);
             self.mainView.setHeightOfParent(0.85);
-
+            
             self.alpha = 1.0;
-        })
+        }, completion: { (boolComplete) in
+            UIView.animate(withDuration: 0.15, animations: {
+                self.mainView.centreInParent();
+            });
+        });
     }
     
     public func setStyle(font _font:UIFont,boldFont _boldFont:UIFont, darkBackgroundColor _darkBackgroundColor:UIColor, midBackgroundColor _midBackgroundColor:UIColor, lightBackgroundColor _lightBackgroundColor:UIColor, darkTextColor _darkTextColor:UIColor, lightTextColor _lightTextColor:UIColor,hasDoneButton _boolHasDoneButton:Bool){
