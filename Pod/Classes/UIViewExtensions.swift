@@ -458,6 +458,11 @@ public extension UIView{
         stretchRight(d - self.frame.size.width);
     }
     
+    func setSquareOfSize(_ d:CGFloat){
+        stretchRight(d - self.frame.size.width );
+        stretchDown (d - self.frame.size.height);
+    }
+
     func setHeight(_ d:CGFloat){
         stretchDown(d - self.frame.size.height);
     }
