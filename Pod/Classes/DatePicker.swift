@@ -31,6 +31,10 @@ public class DatePicker:UIView{
                 currentPickedDate = date;
                 currentShownDate = date.startOfCurrentMonth();
                 setNeedsLayout();
+            }else if let date = delegate?.defaultDateForDatePicker(datePicker:self){
+                currentPickedDate = date;
+                currentShownDate = date.startOfCurrentMonth();
+                setNeedsLayout();
             }
         }
     }
