@@ -57,7 +57,7 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
     @objc private func itemTapHandler(g:UITapGestureRecognizer){
         guard let v = g.view else {return;}
         
-        for (text,label) in itemLabels{
+        for (_,label) in itemLabels{
             if(label == v){
                 self.setNeedsLayout();
                 

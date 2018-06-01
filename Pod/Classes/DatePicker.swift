@@ -100,7 +100,7 @@ public class DatePicker:UIView{
         mainView.layer.borderWidth = 2.0;
         mainView.backgroundColor = lightBackgroundColor;
 
-        for l:InsetLabel! in dateLabels.values {
+        for l:InsetLabel in dateLabels.values {
             l.removeFromSuperview();
         }
         dateLabels.removeAll();

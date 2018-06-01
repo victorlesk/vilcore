@@ -45,7 +45,8 @@ open class InsetLabel: UILabel {
             var intrinsicSuperViewContentSize = super.intrinsicContentSize;
 
             let textWidth = frame.size.width - (self.leftInset + self.rightInset)
-            let newSize = self.text!.boundingRect(with:CGSize(width:textWidth, height:CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: self.font], context: nil);
+            //let newSize = self.text!.boundingRect(with:CGSize(width:textWidth, height:CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: self.font], context: nil);
+            let newSize = self.text!.boundingRect(with:CGSize(width:textWidth, height:CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: nil);
             intrinsicSuperViewContentSize.height = ceil(newSize.size.height) + self.topInset + self.bottomInset
             
             return intrinsicSuperViewContentSize;
