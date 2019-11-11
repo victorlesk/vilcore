@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 public class DatePicker:UIView{
-    var boolPickYear = true;
-    var boolPickDate = true;
-    var boolPickTime = false;
+    @objc var boolPickYear = true;
+    @objc var boolPickDate = true;
+    @objc var boolPickTime = false;
     
-    var boolHasDoneButton = true;
+    @objc var boolHasDoneButton = true;
     
     public var delegate:DatePickerDelegate?;
     
-    public var originalView:UIView?{
+    @objc public var originalView:UIView?{
         didSet{
             if let date = (originalView as? UITextField)?.text?.DDMMYYYYDate(){
                 currentPickedDate = date;
@@ -39,40 +39,40 @@ public class DatePicker:UIView{
         }
     }
     
-    public var datePickable = true;
-    public var timePickable = false;
+    @objc public var datePickable = true;
+    @objc public var timePickable = false;
 
-    public var currentShownDate:Date = Date().startOfCurrentMonth();
-    public var currentPickedDate:Date?;
-    public var minimumDate:Date?
-    public var maximumDate:Date?
+    @objc public var currentShownDate:Date = Date().startOfCurrentMonth();
+    @objc public var currentPickedDate:Date?;
+    @objc public var minimumDate:Date?
+    @objc public var maximumDate:Date?
 
-    public var mainView:UIView;
-    var calendarView:UIView?
-    var timeView:UIView?
+    @objc public var mainView:UIView;
+    @objc var calendarView:UIView?
+    @objc var timeView:UIView?
 
-    public var minYear = 1910;
-    public var maxYear:Int = Date().components(.year).year!;
-    var yearScrollView:UIScrollView?
-    var yearLabels = [Int:InsetLabel]();
+    @objc public var minYear = 1910;
+    @objc public var maxYear:Int = Date().components(.year).year!;
+    @objc var yearScrollView:UIScrollView?
+    @objc var yearLabels = [Int:InsetLabel]();
     
-    var monthLabel:InsetLabel?;
-    var monthLeftLabel:InsetLabel?;
-    var monthRightLabel:InsetLabel?;
-    var dateLabels = [String:InsetLabel]();
+    @objc var monthLabel:InsetLabel?;
+    @objc var monthLeftLabel:InsetLabel?;
+    @objc var monthRightLabel:InsetLabel?;
+    @objc var dateLabels = [String:InsetLabel]();
     
-    var hourTextField:LineTextField?;
-    var minuteTextField:LineTextField?;
+    @objc var hourTextField:LineTextField?;
+    @objc var minuteTextField:LineTextField?;
 
-    var doneButton:UIButton?;
+    @objc var doneButton:UIButton?;
     
-    public var font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize);
-    public var boldFont:UIFont = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize);
-    public var darkBackgroundColor = UIColor.black;
-    public var midBackgroundColor = UIColor.lightGray;
-    public var lightBackgroundColor = UIColor.white;
-    public var darkTextColor = UIColor.black;
-    public var lightTextColor = UIColor.white;
+    @objc public var font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize);
+    @objc public var boldFont:UIFont = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize);
+    @objc public var darkBackgroundColor = UIColor.black;
+    @objc public var midBackgroundColor = UIColor.lightGray;
+    @objc public var lightBackgroundColor = UIColor.white;
+    @objc public var darkTextColor = UIColor.black;
+    @objc public var lightTextColor = UIColor.white;
 
     required public init?(coder aDecoder: NSCoder) {
         mainView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 0));
@@ -220,7 +220,7 @@ public class DatePicker:UIView{
                 l?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(monthStepperHandler(g:))));
             }
             
-            for d in [UISwipeGestureRecognizerDirection.left,UISwipeGestureRecognizerDirection.right]{
+            for d in [UISwipeGestureRecognizer.Direction.left,UISwipeGestureRecognizer.Direction.right]{
                 let g = UISwipeGestureRecognizer(target: self, action: #selector(monthStepperHandler(g:)));
                 g.direction = d;
                 newCalendarView.addGestureRecognizer(g);
@@ -332,25 +332,25 @@ public class DatePicker:UIView{
         
     }
 
-    public func pickDateTime(){
+    @objc public func pickDateTime(){
         boolPickDate = true;
         boolPickTime = true;
         show();
     }
 
-    public func pickDate(){
+    @objc public func pickDate(){
         boolPickDate = true;
         boolPickTime = false;
         show();
     }
 
-    public func pickTime(){
+    @objc public func pickTime(){
         boolPickDate = false;
         boolPickTime = true;
         show();
     }
         
-    func show(){
+    @objc func show(){
         guard let delegate=delegate else {return;}
         self.removeFromSuperview();
         
@@ -382,7 +382,7 @@ public class DatePicker:UIView{
         }
     }
     
-    public func setStyle(font _font:UIFont,boldFont _boldFont:UIFont, darkBackgroundColor _darkBackgroundColor:UIColor, midBackgroundColor _midBackgroundColor:UIColor, lightBackgroundColor _lightBackgroundColor:UIColor, darkTextColor _darkTextColor:UIColor, lightTextColor _lightTextColor:UIColor,hasDoneButton _boolHasDoneButton:Bool){
+    @objc public func setStyle(font _font:UIFont,boldFont _boldFont:UIFont, darkBackgroundColor _darkBackgroundColor:UIColor, midBackgroundColor _midBackgroundColor:UIColor, lightBackgroundColor _lightBackgroundColor:UIColor, darkTextColor _darkTextColor:UIColor, lightTextColor _lightTextColor:UIColor,hasDoneButton _boolHasDoneButton:Bool){
         font = _font;
         boldFont = _boldFont;
         darkBackgroundColor = _darkBackgroundColor;

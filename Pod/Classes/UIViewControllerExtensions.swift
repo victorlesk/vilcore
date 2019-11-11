@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIViewController{
-    func fadeIn(){
+    @objc func fadeIn(){
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             for v in self.view.subviews {
                 v.alpha = 1.0;
@@ -17,7 +17,7 @@ public extension UIViewController{
         });
     }
     
-    func prepareForFadeIn(){
+    @objc func prepareForFadeIn(){
         for v in self.view.subviews {
                 v.alpha = 0.0;
         }

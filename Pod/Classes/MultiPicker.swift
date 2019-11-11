@@ -10,29 +10,29 @@ import UIKit
 public class MultiPicker: UIView, UIScrollViewDelegate{
     public var delegate:MultiPickerDelegate?;
     
-    public var originalView:UIView?
+    @objc public var originalView:UIView?
     
-    var boolHasDoneButton = false;
-    var doneButton:UIButton?;
+    @objc var boolHasDoneButton = false;
+    @objc var doneButton:UIButton?;
     
-    public var font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize);
-    public var boldFont:UIFont = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize);
-    public var darkBackgroundColor = UIColor.black;
-    public var midBackgroundColor = UIColor.lightGray;
-    public var lightBackgroundColor = UIColor.white;
-    public var darkTextColor = UIColor.black;
-    public var lightTextColor = UIColor.white;
-    var column1ElementHeight:CGFloat = 50;
+    @objc public var font:UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize);
+    @objc public var boldFont:UIFont = UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize);
+    @objc public var darkBackgroundColor = UIColor.black;
+    @objc public var midBackgroundColor = UIColor.lightGray;
+    @objc public var lightBackgroundColor = UIColor.white;
+    @objc public var darkTextColor = UIColor.black;
+    @objc public var lightTextColor = UIColor.white;
+    @objc var column1ElementHeight:CGFloat = 50;
     
-    var itemLabels = [String:InsetLabel]();
+    @objc var itemLabels = [String:InsetLabel]();
     
-    var scrollViews = [UIScrollView]();
+    @objc var scrollViews = [UIScrollView]();
 
-    public var currentPickedItem:String?
+    @objc public var currentPickedItem:String?
     
-    public var mainView:UIView;
+    @objc public var mainView:UIView;
     
-    public var boolInitialScrollQueued = false;
+    @objc public var boolInitialScrollQueued = false;
     
     required public init?(coder aDecoder: NSCoder) {
         mainView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 0));
@@ -165,7 +165,7 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
         mainView.hugChildren();
     }
     
-    public func show(){
+    @objc public func show(){
         guard let delegate=delegate else {return;}
         self.removeFromSuperview();
         
@@ -198,7 +198,7 @@ public class MultiPicker: UIView, UIScrollViewDelegate{
         });
     }
     
-    public func setStyle(font _font:UIFont,boldFont _boldFont:UIFont, darkBackgroundColor _darkBackgroundColor:UIColor, midBackgroundColor _midBackgroundColor:UIColor, lightBackgroundColor _lightBackgroundColor:UIColor, darkTextColor _darkTextColor:UIColor, lightTextColor _lightTextColor:UIColor,hasDoneButton _boolHasDoneButton:Bool){
+    @objc public func setStyle(font _font:UIFont,boldFont _boldFont:UIFont, darkBackgroundColor _darkBackgroundColor:UIColor, midBackgroundColor _midBackgroundColor:UIColor, lightBackgroundColor _lightBackgroundColor:UIColor, darkTextColor _darkTextColor:UIColor, lightTextColor _lightTextColor:UIColor,hasDoneButton _boolHasDoneButton:Bool){
         font = _font;
         boldFont = _boldFont;
         darkBackgroundColor = _darkBackgroundColor;

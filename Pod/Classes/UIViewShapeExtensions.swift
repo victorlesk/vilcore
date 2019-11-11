@@ -20,11 +20,11 @@ public enum Shape{
 }
 
 public extension UIView {
-    class func drawThinPlusInRect(_ rect:CGRect,color:UIColor){
+    @objc class func drawThinPlusInRect(_ rect:CGRect,color:UIColor){
         UIView.drawThinPlusOrMinusInRect(rect, color: color, boolPlus: true);
     }
     
-    class func drawThinMinusInRect(_ rect:CGRect,color:UIColor){
+    @objc class func drawThinMinusInRect(_ rect:CGRect,color:UIColor){
         UIView.drawThinPlusOrMinusInRect(rect, color: color, boolPlus: false);
     }
     

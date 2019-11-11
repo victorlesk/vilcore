@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 public extension UIScrollView{
-    func scrollToBottom(){
+    @objc func scrollToBottom(){
         setContentOffset(CGPoint(x:contentOffset.x,y:contentSize.height - frame.height), animated: true);
     }
 
-    func scrollToTop(){
+    @objc func scrollToTop(){
         setContentOffset(CGPoint(x:contentOffset.x,y:0), animated: true);
     }
 
-    func scrollTo(_ p:CGPoint){
+    @objc func scrollTo(_ p:CGPoint){
         setContentOffset(p, animated:true);
     }
 }

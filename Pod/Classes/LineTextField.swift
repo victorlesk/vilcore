@@ -10,8 +10,8 @@ import UIKit
 
 public class LineTextField: UITextField {
 
-    public var lineColor:UIColor = UIColor.black;
-    public var lineHeight:CGFloat = 2.0;
+    @objc public var lineColor:UIColor = UIColor.black;
+    @objc public var lineHeight:CGFloat = 2.0;
     
     override init(frame: CGRect) {
         super.init(frame: frame)
